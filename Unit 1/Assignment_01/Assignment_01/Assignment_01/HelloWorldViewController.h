@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HelloWorldViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblDisplayMessage;
 
 @end

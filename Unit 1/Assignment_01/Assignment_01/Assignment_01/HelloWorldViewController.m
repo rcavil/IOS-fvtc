@@ -17,7 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	//Set the display label text value
+    
+    _lblDisplayMessage.text=@"How many total snow days and early releases will my kids have this winter?";
+
+    
 }
 
 - (void)didReceiveMemoryWarning
