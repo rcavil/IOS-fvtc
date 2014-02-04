@@ -111,6 +111,8 @@
     }
     
     
+    int product=[self productWithNumber:4 withNumber2:6 withNumber3:9];
+    
 }
 
 -(int) productWithNumber: (int) num1 withNumber2:(int) num2 withNumber3:(int) num3
