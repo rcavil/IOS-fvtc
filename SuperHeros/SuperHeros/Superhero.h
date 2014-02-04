@@ -11,19 +11,35 @@
 @interface Superhero : NSObject
 {
   //private
-  NSString *name_;
-  NSString *power_;
-  NSString *secret_;
+  NSString *_name;
+  NSString *_power;
+  NSString *_secret;
 }
 
+
+
+-(id) initWithName: (NSString *) name withPower: (NSString*) power withSecret: (NSString*) secret;
+
+
 //public
+
 //name getter, capitalized attribute
 -(NSString*) Name;
 //name setter, set prefixed the attributre name
 //parameter is lower case attribute name
 -(void) SetName:(NSString*) name;
 
+//name getter, capitalized attribute
+-(NSString*) Power;
+//name setter, set prefixed the attributre name
+//parameter is lower case attribute name
+-(void) SetPower:(NSString*) power;
 
+//name getter, capitalized attribute
+-(NSString*) Secret;
+//name setter, set prefixed the attributre name
+//parameter is lower case attribute name
+-(void) SetSecret:(NSString*) secret;
 
 
 @end

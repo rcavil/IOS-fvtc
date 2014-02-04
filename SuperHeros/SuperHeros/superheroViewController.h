@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Superhero.h"
 
 @interface superheroViewController : UIViewController
+
+{
+  //private
+    //Superhero *_heroes[20];
+    
+    NSMutableArray *heroes;
+    
+    int index;
+        
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *powerField;
@@ -22,5 +33,6 @@
 - (IBAction)secretDidEndOnExit:(id)sender;
 
 - (IBAction)submitButtonSelected:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *ageField;
 
 @end

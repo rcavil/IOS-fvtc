@@ -7,6 +7,7 @@
 //
 
 #import "superheroViewController.h"
+#import "Superhero.h"
 
 @interface superheroViewController ()
 
@@ -14,11 +15,13 @@
 
 @implementation superheroViewController
 
-@synthesize nameField, powerField, secretField;
+@synthesize nameField, powerField, secretField, ageField;
 
 
 - (void) touchesEnded: (NSSet*) touches withEvent:(UIEvent *)event
 {
+    //dismiss keyboards
+    
     [nameField resignFirstResponder];
     [powerField resignFirstResponder];
     [secretField resignFirstResponder];
@@ -28,7 +31,10 @@
 {
     
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    index=0;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,9 +58,58 @@
     NSString *name= [nameField text];
     NSString *secret= [secretField text];
     NSString *power= [powerField text];
+
+    //NSLog(@"Name: %@",name);
+    //NSLog(@"Secret:%@",secret);
+    //NSLog(@"Power: %@",power);
     
-    NSLog(@"Name: %@",name);
-    NSLog(@"Secret:%@",secret);
-    NSLog(@"Power: %@",power);    
+    
+    Superhero *hero = [[Superhero alloc] init];
+    
+    [hero SetName:name];
+    [hero SetPower:power];
+    [hero SetSecret:secret];
+    
+    NSLog(@"index: %i||%@",index,hero);
+
+    /*
+    if (index <20)
+    {
+        _heroes[index] =hero;
+        index++;
+    }
+     
+     _heroes[index] =hero;
+     index++;
+
+*/
+    //NSLog(@"Index: %@",power);
+
+    [heroes addObject:hero];
+    
+    for (int i=0; i< [heroes count]; i++)
+    {
+        NSLog(@"index: %i||%@",i, [heroes objectAtIndex:i]);
+    }
+    
+
+    
+    int age =[[ageField text] intValue];
+    
+    
+    switch (age) {
+        case 0-10:
+            NSLog(@"Child");
+            break;
+            
+        case 11-20:
+            NSLog(@"Teenager");
+            break;
+            
+        default:
+            break;
+    }
+    
+    
 }
 @end
