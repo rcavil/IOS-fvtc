@@ -112,4 +112,11 @@
     
     
 }
+
+-(int) productWithNumber: (int) num1 withNumber2:(int) num2 withNumber3:(int) num3
+{
+    int product =num1*num2*num3;
+    return product;
+}
+
 @end

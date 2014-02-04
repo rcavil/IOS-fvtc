@@ -24,15 +24,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *powerField;
 @property (weak, nonatomic) IBOutlet UITextField *secretField;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UITextField *ageField;
+
 
 - (IBAction)clearButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 - (IBAction)didEndOnExit:(id)sender;
 - (IBAction)powerDidEndOnExit:(UITextField *)sender;
 - (IBAction)secretDidEndOnExit:(id)sender;
 
 - (IBAction)submitButtonSelected:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *ageField;
+
+
 
 @end
