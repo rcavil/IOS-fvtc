@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtGrade4;
 @property (weak, nonatomic) IBOutlet UITextField *txtGrade5;
 
+@property (strong, nonatomic) NSMutableArray *scoresArray;
+
 //Functions for calculating and displaying grade results
 -(double) getAverageScore;
 -(NSString *) getLetterGrade:(double)gradeNumeric;

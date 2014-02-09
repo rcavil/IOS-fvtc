@@ -16,20 +16,19 @@
 
 @synthesize lblGradeResults, txtGrade1,txtGrade2,txtGrade3,txtGrade4,txtGrade5;
 
-NSMutableArray *scoresArray;
+//NSMutableArray *scoresArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.scoresArray = [[NSMutableArray alloc] init];
     
-    NSMutableArray *scoresArray = [[NSMutableArray alloc] init];
-    [scoresArray addObject:@"0"];
-    [scoresArray addObject:@"0"];
-    [scoresArray addObject:@"0"];
-    [scoresArray addObject:@"0"];
-    [scoresArray addObject:@"0"];
-    
+    [self.scoresArray addObject:@"0"];
+    [self.scoresArray addObject:@"0"];
+    [self.scoresArray addObject:@"0"];
+    [self.scoresArray addObject:@"0"];
+    [self.scoresArray addObject:@"0"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +54,8 @@ NSMutableArray *scoresArray;
     NSString* gradeResultText;
     NSString* letterGrade;
     
+    [self setGradeScores];
+    
     //Call local methods to get grade results
     
     averageScore=[self getAverageScore];
@@ -68,9 +69,39 @@ NSMutableArray *scoresArray;
 
 -(double) getAverageScore
 {
-    double averageScore=74.50;
+    double averageScore=0.00;
+    double totalPoints=0.00;
+    //[*scoresArray[0] doubleValue];
+
+    for (NSString *score in self.scoresArray)
+    {
+        totalPoints=totalPoints+ [score doubleValue] ;
+    }
+
+    if (totalPoints !=0)
+    {
+        averageScore=(totalPoints/5);
+    }
     
     return averageScore;
+}
+
+-(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade
+{
+    
+    NSString *gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a %@ ", gradeNumeric,letterGrade];
+    
+    return gradeResultText;
+}
+
+-(void) setGradeScores
+{
+ 
+    [self.scoresArray replaceObjectAtIndex:0 withObject:txtGrade1.text];
+    [self.scoresArray replaceObjectAtIndex:1 withObject:txtGrade2.text];
+    [self.scoresArray replaceObjectAtIndex:2 withObject:txtGrade3.text];
+    [self.scoresArray replaceObjectAtIndex:3 withObject:txtGrade4.text];
+    [self.scoresArray replaceObjectAtIndex:4 withObject:txtGrade5.text];
 }
 
 -(NSString *) getLetterGrade:(double)gradeNumeric
@@ -79,13 +110,13 @@ NSMutableArray *scoresArray;
     letterGrade=@"";
     
     if (gradeNumeric>=95)
-      {
+    {
         letterGrade=@"A";
-      }
+    }
     else if (gradeNumeric>=92)
-      {
+    {
         letterGrade=@"A-";
-      }
+    }
     else if (gradeNumeric>=90)
     {
         letterGrade=@"B+";
@@ -102,7 +133,7 @@ NSMutableArray *scoresArray;
     {
         letterGrade=@"C+";
     }
-
+    
     else if (gradeNumeric>=80)
     {
         letterGrade=@"C";
@@ -124,24 +155,11 @@ NSMutableArray *scoresArray;
         letterGrade=@"D-";
     }
     else
-      {
+    {
         letterGrade=@"F";
-      }
+    }
     
     return letterGrade;
-}
-
--(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade
-{
-    
-    NSString *gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a %@ ", gradeNumeric,letterGrade];
-    
-    return gradeResultText;
-}
-
--(void) setGradeScores
-{
-    
 }
 
 @end
