@@ -12,8 +12,11 @@
 
 - (IBAction)hideKeyboard:(UITextField *)sender;
 - (IBAction)btnSubmitChosen:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblGradeResults;
--(void) calculateAverageScore;
--(void) calculateLetterGrade;
+
+-(double) getAverageScore;
+-(NSString *) getLetterGrade:(double)gradeNumeric;
+-(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade;
 
 @end
