@@ -10,4 +10,10 @@
 
 @interface RJCViewController : UIViewController
 
+- (IBAction)hideKeyboard:(UITextField *)sender;
+- (IBAction)btnSubmitChosen:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *lblGradeResults;
+-(void) calculateAverageScore;
+-(void) calculateLetterGrade;
+
 @end

@@ -14,6 +14,8 @@
 
 @implementation RJCViewController
 
+@synthesize lblGradeResults;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,28 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)hideKeyboard:(UITextField *)sender {
+    
+    //Hide keyboard when user exits text field
+    [sender resignFirstResponder];
+}
+
+- (IBAction)btnSubmitChosen:(UIButton *)sender {
+    lblGradeResults.text=@"ron";
+    
+}
+
+-(void) calculateAverageScore
+{
+    
+}
+
+-(void) calculateLetterGrade
+{
+    
 }
 
 @end
