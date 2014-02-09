@@ -21,6 +21,7 @@
 		E4F4DF7E18A710400072AED5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F4DF6018A710400072AED5 /* UIKit.framework */; };
 		E4F4DF8618A710400072AED5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4F4DF8418A710400072AED5 /* InfoPlist.strings */; };
 		E4F4DF8818A710400072AED5 /* Assignment3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F4DF8718A710400072AED5 /* Assignment3Tests.m */; };
+		E4F4DF9418A712EE0072AED5 /* 161-calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F4DF9318A712EE0072AED5 /* 161-calculator.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E4F4DF8318A710400072AED5 /* Assignment3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Assignment3Tests-Info.plist"; sourceTree = "<group>"; };
 		E4F4DF8518A710400072AED5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E4F4DF8718A710400072AED5 /* Assignment3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assignment3Tests.m; sourceTree = "<group>"; };
+		E4F4DF9318A712EE0072AED5 /* 161-calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "161-calculator.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		E4F4DF6218A710400072AED5 /* Assignment3 */ = {
 			isa = PBXGroup;
 			children = (
+				E4F4DF9218A712C80072AED5 /* Images */,
 				E4F4DF6B18A710400072AED5 /* RJCAppDelegate.h */,
 				E4F4DF6C18A710400072AED5 /* RJCAppDelegate.m */,
 				E4F4DF6E18A710400072AED5 /* Main.storyboard */,
@@ -150,6 +153,14 @@
 				E4F4DF8418A710400072AED5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4F4DF9218A712C80072AED5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4DF9318A712EE0072AED5 /* 161-calculator.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F4DF9418A712EE0072AED5 /* 161-calculator.png in Resources */,
 				E4F4DF7518A710400072AED5 /* Images.xcassets in Resources */,
 				E4F4DF6718A710400072AED5 /* InfoPlist.strings in Resources */,
 				E4F4DF7018A710400072AED5 /* Main.storyboard in Resources */,
