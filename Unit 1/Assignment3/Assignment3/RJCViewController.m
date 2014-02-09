@@ -14,12 +14,22 @@
 
 @implementation RJCViewController
 
-@synthesize lblGradeResults;
+@synthesize lblGradeResults, txtGrade1,txtGrade2,txtGrade3,txtGrade4,txtGrade5;
+
+NSMutableArray *scoresArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSMutableArray *scoresArray = [[NSMutableArray alloc] init];
+    [scoresArray addObject:@"0"];
+    [scoresArray addObject:@"0"];
+    [scoresArray addObject:@"0"];
+    [scoresArray addObject:@"0"];
+    [scoresArray addObject:@"0"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -31,6 +41,9 @@
 
 - (IBAction)hideKeyboard:(UITextField *)sender {
     
+    //assign user entered grades to an array
+    [self setGradeScores];
+
     //Hide keyboard when user exits text field
     [sender resignFirstResponder];
 }
@@ -121,9 +134,14 @@
 -(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade
 {
     
-    
-    NSString *gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a(n) %@ ", gradeNumeric,letterGrade];
+    NSString *gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a %@ ", gradeNumeric,letterGrade];
     
     return gradeResultText;
 }
+
+-(void) setGradeScores
+{
+    
+}
+
 @end

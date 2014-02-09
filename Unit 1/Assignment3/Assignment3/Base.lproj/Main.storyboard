@@ -97,6 +97,11 @@
                     </view>
                     <connections>
                         <outlet property="lblGradeResults" destination="wm4-mx-MyK" id="8pX-M4-r46"/>
+                        <outlet property="txtGrade1" destination="BtQ-Fa-1fo" id="Ooh-yS-tvc"/>
+                        <outlet property="txtGrade2" destination="oh2-w4-VCS" id="lNe-nt-UyL"/>
+                        <outlet property="txtGrade3" destination="jg0-7E-68V" id="L1q-g8-wWf"/>
+                        <outlet property="txtGrade4" destination="wjG-st-gio" id="rkA-np-2kf"/>
+                        <outlet property="txtGrade5" destination="Ror-Iy-t55" id="Oog-c0-iGf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
