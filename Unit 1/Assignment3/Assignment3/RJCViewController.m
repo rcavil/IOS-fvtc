@@ -80,7 +80,7 @@
 
     if (totalPoints !=0)
     {
-        averageScore=(totalPoints/5);
+        averageScore=(totalPoints/[self.scoresArray count]);
     }
     
     return averageScore;
@@ -88,8 +88,20 @@
 
 -(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade
 {
+    NSString* gradeResultText;
     
-    NSString *gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a %@ ", gradeNumeric,letterGrade];
+    
+    if ([letterGrade hasPrefix:@"A"])
+ {
+        
+        gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned an %@ ", gradeNumeric,letterGrade];
+    }
+    else
+    {
+        gradeResultText = [NSString stringWithFormat:@"With an average score of %.2f, you earned a %@ ", gradeNumeric,letterGrade];
+    
+    }
+    
     
     return gradeResultText;
 }
