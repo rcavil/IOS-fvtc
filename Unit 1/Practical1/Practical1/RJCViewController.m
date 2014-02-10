@@ -14,13 +14,17 @@
 
 @implementation RJCViewController
 
-@synthesize lblArtist, lblSong;
+@synthesize txtArtist, txtSong, sldVolume;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    lblArtist.text=@"";
-    lblSong.text=@"";
+
+    //Clear out user control values
+    
+    txtArtist.text=@"";
+    txtSong.text=@"";
+    sldVolume.value=0;
     
 }
 
@@ -35,4 +39,9 @@
     [sender resignFirstResponder];
   }
 
+- (IBAction)submitSongRequest:(id)sender {
+    //Log user song request via NSLog
+    
+    NSLog(@"Song Artist: %@, Song Title: %@, Volume: %.0f",txtArtist.text,txtSong.text,sldVolume.value);
+}
 @end

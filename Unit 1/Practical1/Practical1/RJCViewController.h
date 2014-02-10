@@ -14,9 +14,13 @@
 //for text controls
 
 - (IBAction)hideKeyboard:(UITextField *)sender;
+- (IBAction)submitSongRequest:(id)sender;
 
 //Property declarations for text fields
-@property (weak, nonatomic) IBOutlet UITextField *lblArtist;
-@property (weak, nonatomic) IBOutlet UITextField *lblSong;
+@property (weak, nonatomic) IBOutlet UITextField *txtArtist;
+@property (weak, nonatomic) IBOutlet UITextField *txtSong;
+
+//Property declaration for slider control
+@property (weak, nonatomic) IBOutlet UISlider *sldVolume;
 
 @end
