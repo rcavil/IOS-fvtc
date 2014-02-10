@@ -21,6 +21,7 @@
 		E4B746FF18A88339001511E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B746E118A88339001511E9 /* UIKit.framework */; };
 		E4B7470718A88339001511E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4B7470518A88339001511E9 /* InfoPlist.strings */; };
 		E4B7470918A88339001511E9 /* Practical1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B7470818A88339001511E9 /* Practical1Tests.m */; };
+		E4B7471418A883FF001511E9 /* 153-guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = E4B7471318A883FF001511E9 /* 153-guitar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E4B7470418A88339001511E9 /* Practical1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Practical1Tests-Info.plist"; sourceTree = "<group>"; };
 		E4B7470618A88339001511E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E4B7470818A88339001511E9 /* Practical1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Practical1Tests.m; sourceTree = "<group>"; };
+		E4B7471318A883FF001511E9 /* 153-guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "153-guitar.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		E4B746E318A88339001511E9 /* Practical1 */ = {
 			isa = PBXGroup;
 			children = (
+				E4B7471218A8835E001511E9 /* Images */,
 				E4B746EC18A88339001511E9 /* RJCAppDelegate.h */,
 				E4B746ED18A88339001511E9 /* RJCAppDelegate.m */,
 				E4B746EF18A88339001511E9 /* Main.storyboard */,
@@ -150,6 +153,14 @@
 				E4B7470518A88339001511E9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4B7471218A8835E001511E9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E4B7471318A883FF001511E9 /* 153-guitar.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				E4B746F618A88339001511E9 /* Images.xcassets in Resources */,
 				E4B746E818A88339001511E9 /* InfoPlist.strings in Resources */,
 				E4B746F118A88339001511E9 /* Main.storyboard in Resources */,
+				E4B7471418A883FF001511E9 /* 153-guitar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
