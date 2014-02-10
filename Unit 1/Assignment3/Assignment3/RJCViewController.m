@@ -16,12 +16,11 @@
 
 @synthesize lblGradeResults, txtGrade1,txtGrade2,txtGrade3,txtGrade4,txtGrade5;
 
-//NSMutableArray *scoresArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    //Allocate and initialize array to hold scores
     self.scoresArray = [[NSMutableArray alloc] init];
     
     [self.scoresArray addObject:@"0"];
@@ -34,11 +33,10 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
-- (IBAction)hideKeyboard:(UITextField *)sender {
+- (IBAction)hideKeyboardSetValues:(UITextField *)sender{
     
     //assign user entered grades to an array
     [self setGradeScores];
@@ -56,11 +54,15 @@
     
     [self setGradeScores];
     
-    //Call local methods to get grade results
-    
+    //Calculate the average score for all submitted grades
     averageScore=[self getAverageScore];
     
+    //Determine the letter grade from the previouslly calculated
+    //average score
     letterGrade=[self getLetterGrade:averageScore];
+    
+    //Get the string value used to display the average score
+    //and letter grade
     gradeResultText=[self getGradeResultText:averageScore :letterGrade];
     
     //Display grade results
@@ -69,15 +71,17 @@
 
 -(double) getAverageScore
 {
+    //declare local variables used for calculating the average score
     double averageScore=0.00;
     double totalPoints=0.00;
-    //[*scoresArray[0] doubleValue];
 
+    //loop thru the array that holds the score values
     for (NSString *score in self.scoresArray)
     {
         totalPoints=totalPoints+ [score doubleValue] ;
     }
 
+    //if not a zero value, calcualate the average score
     if (totalPoints !=0)
     {
         averageScore=(totalPoints/[self.scoresArray count]);
@@ -88,6 +92,7 @@
 
 -(NSString *) getGradeResultText:(double)gradeNumeric :(NSString *)letterGrade
 {
+    //declare local value that will be used to return the results string
     NSString* gradeResultText;
     
     
@@ -108,7 +113,9 @@
 
 -(void) setGradeScores
 {
- 
+    //For every grade textbox control, store the value to a
+    //corresponding array value
+    
     [self.scoresArray replaceObjectAtIndex:0 withObject:txtGrade1.text];
     [self.scoresArray replaceObjectAtIndex:1 withObject:txtGrade2.text];
     [self.scoresArray replaceObjectAtIndex:2 withObject:txtGrade3.text];
@@ -118,8 +125,13 @@
 
 -(NSString *) getLetterGrade:(double)gradeNumeric
 {
+    //Local variable that will hold letter grade result value
     NSString* letterGrade;
     letterGrade=@"";
+    
+    //Match the passed in average score against the grading
+    //matrix and assign the appropriate letter grade
+    //which will be returned
     
     if (gradeNumeric>=95)
     {

@@ -12,7 +12,7 @@
 
 
 //Actions for screen events
-- (IBAction)hideKeyboard:(UITextField *)sender;
+- (IBAction)hideKeyboardSetValues:(UITextField *)sender;
 - (IBAction)btnSubmitChosen:(UIButton *)sender;
 
 //Properies for screen controls
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtGrade4;
 @property (weak, nonatomic) IBOutlet UITextField *txtGrade5;
 
+//Property to hold score values
 @property (strong, nonatomic) NSMutableArray *scoresArray;
 
 //Functions for calculating and displaying grade results

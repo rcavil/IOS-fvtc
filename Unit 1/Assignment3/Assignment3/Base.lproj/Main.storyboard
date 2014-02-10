@@ -30,55 +30,54 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="BtQ-Fa-1fo">
-                                <rect key="frame" x="13" y="77" width="70" height="30"/>
+                                <rect key="frame" x="13" y="77" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="p8y-hJ-X9a"/>
+                                    <action selector="hideKeyboardSetValues:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="k5P-vo-mbZ"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="oh2-w4-VCS">
-                                <rect key="frame" x="117" y="77" width="70" height="30"/>
+                                <rect key="frame" x="117" y="77" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="iQs-fH-taK"/>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="k77-WM-ZAN"/>
+                                    <action selector="hideKeyboardSetValues:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="e3l-LC-V9K"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="jg0-7E-68V">
-                                <rect key="frame" x="220" y="77" width="70" height="30"/>
+                                <rect key="frame" x="222" y="77" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="6Da-dN-3o6"/>
+                                    <action selector="hideKeyboardSetValues:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="3Rd-6m-Qjo"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="wjG-st-gio">
-                                <rect key="frame" x="13" y="115" width="70" height="30"/>
+                                <rect key="frame" x="13" y="115" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="q2u-Dy-h5d"/>
+                                    <action selector="hideKeyboardSetValues:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="v2P-n1-Jc5"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" id="Ror-Iy-t55">
-                                <rect key="frame" x="117" y="115" width="70" height="30"/>
+                                <rect key="frame" x="117" y="115" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="hideKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="7O4-ar-weF"/>
+                                    <action selector="hideKeyboardSetValues:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="UBc-6p-LHu"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5WA-4r-i2I">
-                                <rect key="frame" x="117" y="153" width="77" height="30"/>
+                                <rect key="frame" x="96" y="153" width="128" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Submit Grades">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
