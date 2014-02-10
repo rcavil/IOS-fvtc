@@ -10,4 +10,13 @@
 
 @interface RJCViewController : UIViewController
 
+//Action declaration to hide keyboard
+//for text controls
+
+- (IBAction)hideKeyboard:(UITextField *)sender;
+
+//Property declarations for text fields
+@property (weak, nonatomic) IBOutlet UITextField *lblArtist;
+@property (weak, nonatomic) IBOutlet UITextField *lblSong;
+
 @end
