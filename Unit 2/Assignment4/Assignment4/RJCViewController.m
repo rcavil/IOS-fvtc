@@ -17,13 +17,80 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    _pickerColumns=3;
+    _safeCombination=123;
+    
+    numberChoices = [[NSMutableArray alloc] init];
+    for (int i=0; i<=9; i++)
+    {
+        [numberChoices addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)pickerView
+{
+    return _pickerColumns;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [numberChoices count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [numberChoices objectAtIndex:row];
+
+}
+
+- (IBAction)tryButtonSelected:(UIButton *)sender {
+    
+    int intUserGuess=[self getUserCombinationGuess];
+    NSString *strMessage;
+    
+
+    if (intUserGuess==_safeCombination)
+    {
+       strMessage=@"You cracked the code!";
+    
+    }
+    else
+    {
+        strMessage=@"Your guess was wrong.  Try again.";
+    }
+    
+
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Secret Safe Guess Result"
+                          message:strMessage
+                          delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    
+    [alert show];
+    
+}
+
+- (IBAction)autoButtonSelected:(UIButton *)sender {
+}
+
+- (int) getUserCombinationGuess
+{
+    return 123;
+}
 @end
