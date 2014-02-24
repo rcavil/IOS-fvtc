@@ -47,6 +47,7 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
+    
     return [numberChoices count];
 }
 
@@ -56,6 +57,21 @@ numberOfRowsInComponent:(NSInteger)component
 {
     return [numberChoices objectAtIndex:row];
 
+}
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+{
+    switch (component)
+    {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+    }
+    
 }
 
 - (IBAction)tryButtonSelected:(UIButton *)sender {
@@ -71,7 +87,7 @@ numberOfRowsInComponent:(NSInteger)component
     }
     else
     {
-        strMessage=@"Your guess was wrong.  Try again.";
+        strMessage=@"You gressed wrong, try again.";
     }
     
 
@@ -91,6 +107,7 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (int) getUserCombinationGuess
 {
-    return 123;
+    
+    return 4;
 }
 @end
