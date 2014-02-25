@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-NSMutableArray *numberChoices ;
-
 
 @interface RJCViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 //Properties declared
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property int pickerColumns;
-@property int safeCombination;
+@property (nonatomic, strong) NSString  *safeStoredCombination;
 
+@property (nonatomic, strong) NSMutableArray *safeUserCombination;
+@property (nonatomic, strong) NSMutableArray *numberChoices;
 
 //Actions declared
 
@@ -26,5 +26,5 @@ NSMutableArray *numberChoices ;
 
 //
 
-- (int) getUserCombinationGuess;
+- (NSString*) getUserCombinationGuess;
 @end

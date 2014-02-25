@@ -19,12 +19,19 @@
     [super viewDidLoad];
     
     _pickerColumns=3;
-    _safeCombination=123;
+    _safeStoredCombination=@"321";
     
-    numberChoices = [[NSMutableArray alloc] init];
+    
+    _safeUserCombination=[[NSMutableArray alloc] init];
+    for (int i=0; i<=(_pickerColumns-1); i++)
+    {
+        [_safeUserCombination addObject:@"0"];
+    }
+    
+    _numberChoices = [[NSMutableArray alloc] init];
     for (int i=0; i<=9; i++)
     {
-        [numberChoices addObject:[NSString stringWithFormat:@"%d",i]];
+        [_numberChoices addObject:[NSString stringWithFormat:@"%d",i]];
     }
 
 }
@@ -34,9 +41,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
-#pragma mark -
-#pragma mark PickerView DataSource
 
 - (NSInteger)numberOfComponentsInPickerView:
 (UIPickerView *)pickerView
@@ -48,39 +52,31 @@
 numberOfRowsInComponent:(NSInteger)component
 {
     
-    return [numberChoices count];
+    return [_numberChoices count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [numberChoices objectAtIndex:row];
+    return [_numberChoices objectAtIndex:row];
 
 }
 
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
-    switch (component)
-    {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-    }
-    
+    [_safeUserCombination replaceObjectAtIndex: component withObject: [NSString stringWithFormat:@"%d",row]];
 }
 
 - (IBAction)tryButtonSelected:(UIButton *)sender {
     
-    int intUserGuess=[self getUserCombinationGuess];
+    NSString *strUserGuess=[self getUserCombinationGuess];
     NSString *strMessage;
     
-
-    if (intUserGuess==_safeCombination)
+    
+    if([strUserGuess isEqualToString:_safeStoredCombination])
+    
     {
        strMessage=@"You cracked the code!";
     
@@ -105,9 +101,16 @@ numberOfRowsInComponent:(NSInteger)component
 - (IBAction)autoButtonSelected:(UIButton *)sender {
 }
 
-- (int) getUserCombinationGuess
+- (NSString*) getUserCombinationGuess
 {
     
-    return 4;
+    NSMutableString *strUserCombination = [[NSMutableString alloc] init];
+    
+    for (int i=0; i<=(_pickerColumns-1); i++)
+    {
+        [strUserCombination appendString:  [_safeUserCombination objectAtIndex:i] ];
+    }
+    
+    return strUserCombination;
 }
 @end
