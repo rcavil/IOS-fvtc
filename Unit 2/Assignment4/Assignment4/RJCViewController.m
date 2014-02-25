@@ -13,14 +13,14 @@
 @end
 
 @implementation RJCViewController
+@synthesize picker;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     _pickerColumns=3;
-    _safeStoredCombination=@"321";
-    
+    _safeStoredCombination=@"987";
     
     _safeUserCombination=[[NSMutableArray alloc] init];
     for (int i=0; i<=(_pickerColumns-1); i++)
@@ -98,7 +98,17 @@ numberOfRowsInComponent:(NSInteger)component
     
 }
 
-- (IBAction)autoButtonSelected:(UIButton *)sender {
+- (IBAction)autoButtonSelected:(UIButton *)sender
+{
+    
+    for (int i=0; i<=(_pickerColumns-1); i++)
+    {
+        NSString *componentValue;
+        componentValue = [_safeStoredCombination substringWithRange: NSMakeRange (i, 1)];
+        
+        [picker selectRow:[componentValue integerValue] inComponent:i animated:YES];
+    }
+   
 }
 
 - (NSString*) getUserCombinationGuess
