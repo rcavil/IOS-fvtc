@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4277C5C18C4122100871E36 /* RJCAddEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4277C5B18C4122100871E36 /* RJCAddEditViewController.m */; };
 		E46E059C18C3ABC2008D28A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46E059B18C3ABC1008D28A7 /* Foundation.framework */; };
 		E46E059E18C3ABC2008D28A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46E059D18C3ABC2008D28A7 /* CoreGraphics.framework */; };
 		E46E05A018C3ABC2008D28A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46E059F18C3ABC2008D28A7 /* UIKit.framework */; };
@@ -21,6 +22,7 @@
 		E46E05BD18C3ABC2008D28A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46E059F18C3ABC2008D28A7 /* UIKit.framework */; };
 		E46E05C518C3ABC2008D28A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E46E05C318C3ABC2008D28A7 /* InfoPlist.strings */; };
 		E46E05C718C3ABC2008D28A7 /* Assignment5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E46E05C618C3ABC2008D28A7 /* Assignment5Tests.m */; };
+		E46E05D218C3B04E008D28A7 /* RJCSongEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E46E05D118C3B04E008D28A7 /* RJCSongEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4277C5A18C4122100871E36 /* RJCAddEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCAddEditViewController.h; sourceTree = "<group>"; };
+		E4277C5B18C4122100871E36 /* RJCAddEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCAddEditViewController.m; sourceTree = "<group>"; };
 		E46E059818C3ABC1008D28A7 /* Assignment5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46E059B18C3ABC1008D28A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E46E059D18C3ABC2008D28A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +57,8 @@
 		E46E05C218C3ABC2008D28A7 /* Assignment5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Assignment5Tests-Info.plist"; sourceTree = "<group>"; };
 		E46E05C418C3ABC2008D28A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E46E05C618C3ABC2008D28A7 /* Assignment5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assignment5Tests.m; sourceTree = "<group>"; };
+		E46E05D018C3B04E008D28A7 /* RJCSongEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJCSongEntry.h; sourceTree = "<group>"; };
+		E46E05D118C3B04E008D28A7 /* RJCSongEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJCSongEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				E46E05B118C3ABC2008D28A7 /* RJCViewController.m */,
 				E46E05B318C3ABC2008D28A7 /* Images.xcassets */,
 				E46E05A218C3ABC2008D28A7 /* Supporting Files */,
+				E46E05D018C3B04E008D28A7 /* RJCSongEntry.h */,
+				E46E05D118C3B04E008D28A7 /* RJCSongEntry.m */,
+				E4277C5A18C4122100871E36 /* RJCAddEditViewController.h */,
+				E4277C5B18C4122100871E36 /* RJCAddEditViewController.m */,
 			);
 			path = Assignment5;
 			sourceTree = "<group>";
@@ -252,6 +262,8 @@
 			files = (
 				E46E05AC18C3ABC2008D28A7 /* RJCAppDelegate.m in Sources */,
 				E46E05A818C3ABC2008D28A7 /* main.m in Sources */,
+				E46E05D218C3B04E008D28A7 /* RJCSongEntry.m in Sources */,
+				E4277C5C18C4122100871E36 /* RJCAddEditViewController.m in Sources */,
 				E46E05B218C3ABC2008D28A7 /* RJCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +473,7 @@
 				E46E05CC18C3ABC2008D28A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E46E05CD18C3ABC2008D28A7 /* Build configuration list for PBXNativeTarget "Assignment5Tests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +482,7 @@
 				E46E05CF18C3ABC2008D28A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
