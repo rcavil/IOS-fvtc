@@ -17,8 +17,8 @@
     self.window.rootViewController = nav;
   
     //initialize shared store (calls init)
-    [SuperheroStore SharedStore];
-    
+    [[SuperheroStore SharedStore] Load];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
