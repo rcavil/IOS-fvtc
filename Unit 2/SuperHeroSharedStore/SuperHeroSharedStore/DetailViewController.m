@@ -70,12 +70,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 
     Superhero *tempSuperhero=[[SuperheroStore SharedStore] SuperheroAtIndex:_superheroindex];
-
-    /*
-    [nameValue setText: [tempSuperhero Name]];
-    [powerValue setText:[tempSuperhero Power]];
-    [secretValue setText:[tempSuperhero Secret]];
-    */
     
     [tempSuperhero SetName:[nameValue text]];
     [tempSuperhero SetPower:[powerValue text]];
