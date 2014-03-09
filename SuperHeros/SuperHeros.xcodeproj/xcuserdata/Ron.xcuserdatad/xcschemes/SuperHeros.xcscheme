@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-               BuildableName = "Assignment5.app"
-               BlueprintName = "Assignment5"
-               ReferencedContainer = "container:Assignment5.xcodeproj">
+               BlueprintIdentifier = "BB1052A318A0621300C88792"
+               BuildableName = "SuperHeros.app"
+               BlueprintName = "SuperHeros"
+               ReferencedContainer = "container:SuperHeros.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E40F9AA918CBE8A900AC3803"
-               BuildableName = "Assignment5Tests.xctest"
-               BlueprintName = "Assignment5Tests"
-               ReferencedContainer = "container:Assignment5.xcodeproj">
+               BlueprintIdentifier = "BB1052C418A0621300C88792"
+               BuildableName = "SuperHerosTests.xctest"
+               BlueprintName = "SuperHerosTests"
+               ReferencedContainer = "container:SuperHeros.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment5.app"
-            BlueprintName = "Assignment5"
-            ReferencedContainer = "container:Assignment5.xcodeproj">
+            BlueprintIdentifier = "BB1052A318A0621300C88792"
+            BuildableName = "SuperHeros.app"
+            BlueprintName = "SuperHeros"
+            ReferencedContainer = "container:SuperHeros.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment5.app"
-            BlueprintName = "Assignment5"
-            ReferencedContainer = "container:Assignment5.xcodeproj">
+            BlueprintIdentifier = "BB1052A318A0621300C88792"
+            BuildableName = "SuperHeros.app"
+            BlueprintName = "SuperHeros"
+            ReferencedContainer = "container:SuperHeros.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment5.app"
-            BlueprintName = "Assignment5"
-            ReferencedContainer = "container:Assignment5.xcodeproj">
+            BlueprintIdentifier = "BB1052A318A0621300C88792"
+            BuildableName = "SuperHeros.app"
+            BlueprintName = "SuperHeros"
+            ReferencedContainer = "container:SuperHeros.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
