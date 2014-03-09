@@ -14,7 +14,29 @@
 
 @implementation DetailViewController
 
+@ synthesize songNameField, songArtistField,songAlbumField;
+
+-(id) init
+{
+    self = [super init];
+    if (self) {
+    }
+    
+    return self;
+}
+
+
 #pragma mark - Managing the detail item
+
+/*KRUSTY
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [songNameField resignFirstResponder];
+    [songArtistField resignFirstResponder];
+    [songAlbumField resignFirstResponder];
+}
+KRUSTY */
+ 
 
 - (void)setDetailItem:(id)newDetailItem
 {
@@ -48,4 +70,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveButtonClick:(id)sender {
+}
 @end

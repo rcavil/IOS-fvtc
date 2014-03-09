@@ -22,6 +22,8 @@
 		E40F9AAE18CBE8A900AC3803 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F9A8D18CBE8A800AC3803 /* UIKit.framework */; };
 		E40F9AB618CBE8A900AC3803 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E40F9AB418CBE8A900AC3803 /* InfoPlist.strings */; };
 		E40F9AB818CBE8A900AC3803 /* Assignment5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E40F9AB718CBE8A900AC3803 /* Assignment5Tests.m */; };
+		E40F9AC618CBE9B300AC3803 /* SongEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E40F9AC518CBE9B300AC3803 /* SongEntry.m */; };
+		E40F9AC918CBEA8F00AC3803 /* SongStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E40F9AC818CBEA8F00AC3803 /* SongStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		E40F9AB318CBE8A900AC3803 /* Assignment5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Assignment5Tests-Info.plist"; sourceTree = "<group>"; };
 		E40F9AB518CBE8A900AC3803 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E40F9AB718CBE8A900AC3803 /* Assignment5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Assignment5Tests.m; sourceTree = "<group>"; };
+		E40F9AC418CBE9B300AC3803 /* SongEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongEntry.h; sourceTree = "<group>"; };
+		E40F9AC518CBE9B300AC3803 /* SongEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongEntry.m; sourceTree = "<group>"; };
+		E40F9AC718CBEA8F00AC3803 /* SongStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongStore.h; sourceTree = "<group>"; };
+		E40F9AC818CBEA8F00AC3803 /* SongStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,10 @@
 				E40F9AA218CBE8A900AC3803 /* DetailViewController.m */,
 				E40F9AA418CBE8A900AC3803 /* Images.xcassets */,
 				E40F9A9018CBE8A800AC3803 /* Supporting Files */,
+				E40F9AC418CBE9B300AC3803 /* SongEntry.h */,
+				E40F9AC518CBE9B300AC3803 /* SongEntry.m */,
+				E40F9AC718CBEA8F00AC3803 /* SongStore.h */,
+				E40F9AC818CBEA8F00AC3803 /* SongStore.m */,
 			);
 			path = Assignment5;
 			sourceTree = "<group>";
@@ -255,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40F9A9A18CBE8A800AC3803 /* AppDelegate.m in Sources */,
+				E40F9AC618CBE9B300AC3803 /* SongEntry.m in Sources */,
 				E40F9AA018CBE8A800AC3803 /* MasterViewController.m in Sources */,
 				E40F9A9618CBE8A800AC3803 /* main.m in Sources */,
+				E40F9AC918CBEA8F00AC3803 /* SongStore.m in Sources */,
 				E40F9AA318CBE8A900AC3803 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
