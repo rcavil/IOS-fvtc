@@ -23,32 +23,44 @@
 }
 
 
--(id) init
-{
-    self = [super init];
-    if (self)
-    {
-        //create an add button item
-        //krusty UIBarButtonItem *AddButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddItem)];
-        
-        //add the button to the navigation
-        //krusty [[self navigationItem] setRightBarButtonItem:AddButton];
-        
-    }
-    
-    return self;
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    //Create an add button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+
+    //Create left swipe gesture to delete songs
+    UISwipeGestureRecognizer *gestureLeft;
+    gestureLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
+    gestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [[self tableView] addGestureRecognizer:gestureLeft];
+    
+}
+
+-(void) handleSwipeFrom:(UISwipeGestureRecognizer *) sender
+{
+    NSLog(@"Swiped");
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        //functionality to remove current item due to swipe gesture
+        CGPoint swipeLocation = [sender locationInView:[self tableView]];
+        NSIndexPath *indexPath = [[self tableView] indexPathForRowAtPoint:swipeLocation];
+        
+        NSLog(@"Indexpath Row:%i||Section:%i", [indexPath row], [indexPath section]);
+        NSLog(@"Count:%i", [[SongStore SharedStore] Count] );
+        if (indexPath != nil && [indexPath row] < [[SongStore SharedStore] Count] )
+        {
+            [[self tableView] beginUpdates];
+            [[self tableView] deleteRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexPath, nil]
+                                    withRowAnimation:UITableViewRowAnimationLeft];
+            
+            [[SongStore SharedStore] RemoveSongAtIndex:[indexPath row]];
+            [[self tableView] endUpdates];
+        }
+    }
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -59,29 +71,28 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)insertNewObject:(id)sender
 {
     
-    //add a random superhero to the shared store
-    [[SongStore SharedStore] AddSongEntry:[SongEntry RandomSong]];
-    //get the tableview control
-     [[self tableView] reloadData];
+    //temp song variable that will be use to create a new song entry
+    SongEntry *tempSongEntry = [[SongEntry alloc] init];
+    [tempSongEntry setSongName:@""];
+    [tempSongEntry setArtist:@""];
+    [tempSongEntry setAlbum:@""];
 
+    //Add new songe entry via Shared Store
+    [[SongStore SharedStore] AddSongEntry: tempSongEntry];
     
-    /*krusty
-    if (!_songs) {
-        _songs = [[NSMutableArray alloc] init];
-    }
+    //Get count of total soungs.  Minus 1 due to zero bassed array
+    NSInteger songColumn=[[SongStore SharedStore] Count]-1;
+
+    //Lauch the detail song screen
+    DetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"showDetail"];
+    [detail setSongIndex:songColumn];
+    [self.navigationController pushViewController: detail animated: YES];
     
-    [_songs insertObject:[NSDate date] atIndex:0];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-     */
 }
 
 #pragma mark - Table View
@@ -93,21 +104,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //krusty return _songs.count;
     return [[SongStore SharedStore] Count];
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*krusty
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _songs[indexPath.row];
-    
-    cell.textLabel.text = [object description];
-    return cell;
-     */
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -117,13 +118,11 @@
     // Configure the cell...
     SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex:[indexPath row]];
     
-    NSString *display = [[NSString alloc] initWithFormat:@"%@: %@", [tempSong songName], [tempSong songName]];
-    
+    //Display the Song name, song artist in the table view
+    NSString *display = [[NSString alloc] initWithFormat:@"%@: %@", [tempSong songName], [tempSong artist]];
     [[cell textLabel] setText:display];
     
     return cell;
-    
-    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,26 +131,21 @@
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    /*krusty
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_songs removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-     */
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    
-}
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+
 
 /*
 // Override to support rearranging the table view.
@@ -169,13 +163,14 @@
 }
 */
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //Lauch song detail screen because it was chosen
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _songs[indexPath.row];
         
-        [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setSongIndex:[indexPath row]];
     }
 }
 

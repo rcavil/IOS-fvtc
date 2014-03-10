@@ -9,17 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
+{
+    int _songIndex;
+    
+}
 
 //Declare Properties
-@property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
 
 @property (weak, nonatomic) IBOutlet UITextField *songNameField;
 @property (weak, nonatomic) IBOutlet UITextField *songArtistField;
 @property (weak, nonatomic) IBOutlet UITextField *songAlbumField;
 
+//Declare Methods
+-(void) setSongIndex:(NSInteger) index;
+
 //Declare Actions
 - (IBAction)saveButtonClick:(id)sender;
+- (IBAction)hideKeyboard:(UITextField *)sender;
 
 @end

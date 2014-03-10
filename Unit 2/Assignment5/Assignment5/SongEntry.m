@@ -10,6 +10,8 @@
 
 @implementation SongEntry
 
+//Setters and Getters for song related information
+
 - (void) setSongName:(NSString *)strSongName
 {
     _songName=strSongName;
@@ -41,65 +43,60 @@
     return _album;
 }
 
-- (NSDate *) dateAdded
-{
-    return _dateAdded;
-}
 
 +(SongEntry*) RandomSong
 {
     //data for generating randoms
-    NSArray *firstSongNames = [[NSArray alloc] initWithObjects:@"Joe",
-                               @"Rick",
-                               @"Jon",
-                               @"Carl",
-                               @"Suzy",
+    NSArray *firstSongNames = [[NSArray alloc] initWithObjects:@"Rockin",
+                               @"Breaking",
+                               @"High",
+                               @"Sweet",
+                               @"Welcome",
                                nil];
-    NSArray *lastSongNames = [[NSArray alloc] initWithObjects:@"Thompson",
-                              @"Richards",
-                              @"Stevenson",
-                              @"Smith",
-                              @"Jones",
+    NSArray *lastSongNames = [[NSArray alloc] initWithObjects:@"World",
+                              @"Jungle",
+                              @"Rules",
+                              @"Voltage",
+                              @"Blues",
                               nil];
     
-    NSArray *firstArtistNames = [[NSArray alloc] initWithObjects:@"Dark",
-                                 @"Liquid",
-                                 @"King",
-                                 @"Professor",
-                                 @"Ms.",
-                                 @"Mr.",
-                                 @"Golden",
+    NSArray *firstArtistNames = [[NSArray alloc] initWithObjects:@"Jimi",
+                                 @"The",
+                                 @"Iggy",
+                                 @"Rolling",
+                                 @"Jett",
+                                 @"Guns",
+                                 @"Rage",
                                  nil];
     
-    NSArray *lastArtistNames = [[NSArray alloc] initWithObjects:@"Dragon",
-                                @"Robot",
-                                @"Ninja",
-                                @"Pirate",
-                                @"Unicorn",
-                                @"Volcano",
-                                @"Tornado",
-                                @"Earthquake",
-                                @"Skeleton",
+    NSArray *lastArtistNames = [[NSArray alloc] initWithObjects:@"Hendrix",
+                                @"Doors",
+                                @"Popp",
+                                @"Stones",
+                                @"Blackhearts",
+                                @"Roses",
+                                @"Machine",
+                                @"Clash",
+                                @"Band",
                                 nil];
     
     
     
-    NSArray *firstAlbumNames = [[NSArray alloc] initWithObjects:@"Super",
-                                @"Cold",
-                                @"Fire",
-                                @"Poison",
-                                @"Wind",
+    NSArray *firstAlbumNames = [[NSArray alloc] initWithObjects:@"White",
+                                @"Abby",
+                                @"Electric",
+                                @"Evil",
+                                @"Master",
                                 nil];
     
-    NSArray *lastAlbumNames = [[NSArray alloc] initWithObjects:@"Strength",
-                               @"Breath",
-                               @"Skin",
-                               @"Armor",
-                               @"Lasers",
+    NSArray *lastAlbumNames = [[NSArray alloc] initWithObjects:@"Album",
+                               @"Road",
+                               @"Ladyland",
+                               @"Empire",
+                               @"Reality",
                                nil];
-    
-    
-    //temp variable
+        
+    //temp song variable
     SongEntry *tempSongEntry = [[SongEntry alloc] init];
     
     //random numbers to pick
@@ -123,10 +120,9 @@
     first = arc4random() % [firstAlbumNames count];
     second = arc4random() % [lastAlbumNames count];
     
-    //generate the power
+    //generate the album name
     NSString *albumName = [[NSString alloc] initWithFormat:@"%@ %@", [firstAlbumNames objectAtIndex:first],
                            [lastAlbumNames objectAtIndex:second]];
-    
     [tempSongEntry setSongName:songName];
     [tempSongEntry setArtist:artistName];
     [tempSongEntry setAlbum:albumName];    

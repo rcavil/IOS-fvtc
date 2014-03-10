@@ -7,9 +7,10 @@
 //
 
 #import "DetailViewController.h"
+#import "SongEntry.h"
+#import "SongStore.h"
 
 @interface DetailViewController ()
-- (void)configureView;
 @end
 
 @implementation DetailViewController
@@ -28,48 +29,47 @@
 
 #pragma mark - Managing the detail item
 
-/*KRUSTY
--(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [songNameField resignFirstResponder];
-    [songArtistField resignFirstResponder];
-    [songAlbumField resignFirstResponder];
-}
-KRUSTY */
- 
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
-
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    //Fill the song text boxes for the song array value that was passed in
+    
+    SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex: _songIndex];
+    
+    [songNameField setText:[tempSong songName]];
+    [songArtistField setText: [tempSong artist]];
+    [songAlbumField setText: [tempSong album]];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)saveButtonClick:(id)sender {
+    
+    //Save the song information from the song textboxes
+    
+    SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex:_songIndex];
+    
+    [tempSong setSongName:[songNameField text]];
+    [tempSong setArtist:[songArtistField text]];
+    [tempSong setAlbum:[songAlbumField text]];
+    
+    //dismisses the current view
+    [[self navigationController] popViewControllerAnimated:YES];
+    
+}
+
+-(void) setSongIndex:(NSInteger) index
+{
+    _songIndex = index;
+    
+}
+
+- (IBAction)hideKeyboard:(UITextField *)sender {
+    [sender resignFirstResponder];
 }
 @end

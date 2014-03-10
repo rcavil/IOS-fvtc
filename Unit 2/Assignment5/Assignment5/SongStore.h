@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "SongEntry.h"
 
-
+//Used to be the central location to add, edit, remove song entries
 @interface SongStore : NSObject
 
 {

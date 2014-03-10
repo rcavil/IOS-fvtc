@@ -14,7 +14,6 @@
     NSString *_songName;
     NSString *_artist;
     NSString *_album;
-    NSDate * _dateAdded;
 }
 
 - (void) setSongName:(NSString *)strSongName;
@@ -26,9 +25,7 @@
 - (void) setAlbum:(NSString *)strAlbum;
 - (NSString *) album;
 
-- (NSDate *)dateAdded;
-
-
+//Declare static method used to prefill random song values
 +(SongEntry *) RandomSong;
 
 @end

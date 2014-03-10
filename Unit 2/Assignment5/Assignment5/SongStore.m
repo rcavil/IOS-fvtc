@@ -15,13 +15,18 @@
     self = [super init];
     if (self) {
         _songs = [[NSMutableArray alloc] init];
+        
+        //Add 3 randonm default song entries
+        
         [_songs addObject:[SongEntry RandomSong]];
-        NSLog(@"Instantiating Test Songs:%@", _songs);
+        [_songs addObject:[SongEntry RandomSong]];
+        [_songs addObject:[SongEntry RandomSong]];
         
     }
     return self;
 }
 
+//Declare static reference to add, edit, remove song entries
 + (SongStore *) SharedStore
 {
     
