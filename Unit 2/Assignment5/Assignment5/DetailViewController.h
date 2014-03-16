@@ -10,7 +10,7 @@
 
 @interface DetailViewController : UIViewController
 {
-    int _songIndex;
+    long _songIndex;
     
 }
 
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *songAlbumField;
 
 //Declare Methods
--(void) setSongIndex:(NSInteger) index;
+-(void) setSongIndex:(long) index;
 
 //Declare Actions
 - (IBAction)saveButtonClick:(id)sender;

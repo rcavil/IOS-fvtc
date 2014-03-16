@@ -63,7 +63,7 @@
     
 }
 
--(void) setSongIndex:(NSInteger) index
+-(void) setSongIndex:(long) index
 {
     _songIndex = index;
     

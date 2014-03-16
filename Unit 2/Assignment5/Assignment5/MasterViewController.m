@@ -48,8 +48,6 @@
         CGPoint swipeLocation = [sender locationInView:[self tableView]];
         NSIndexPath *indexPath = [[self tableView] indexPathForRowAtPoint:swipeLocation];
         
-        NSLog(@"Indexpath Row:%i||Section:%i", [indexPath row], [indexPath section]);
-        NSLog(@"Count:%i", [[SongStore SharedStore] Count] );
         if (indexPath != nil && [indexPath row] < [[SongStore SharedStore] Count] )
         {
             [[self tableView] beginUpdates];
