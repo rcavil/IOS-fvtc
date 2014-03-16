@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-               BuildableName = "Assignment6.app"
+               BuildableName = "Assignment6.temp_caseinsensitive_rename.app"
                BlueprintName = "Assignment6.temp_caseinsensitive_rename"
                ReferencedContainer = "container:Assignment6.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E40F9AA918CBE8A900AC3803"
-               BuildableName = "Assignment6Tests.xctest"
+               BuildableName = "Assignment6.temp_caseinsensitive_renameTests.xctest"
                BlueprintName = "Assignment6.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:Assignment6.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment6.app"
+            BuildableName = "Assignment6.temp_caseinsensitive_rename.app"
             BlueprintName = "Assignment6.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Assignment6.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment6.app"
+            BuildableName = "Assignment6.temp_caseinsensitive_rename.app"
             BlueprintName = "Assignment6.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Assignment6.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E40F9A8518CBE8A800AC3803"
-            BuildableName = "Assignment6.app"
+            BuildableName = "Assignment6.temp_caseinsensitive_rename.app"
             BlueprintName = "Assignment6.temp_caseinsensitive_rename"
             ReferencedContainer = "container:Assignment6.xcodeproj">
          </BuildableReference>
