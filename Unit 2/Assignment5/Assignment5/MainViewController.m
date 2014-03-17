@@ -101,7 +101,10 @@ numberOfRowsInComponent:(NSInteger)component
 - (IBAction)buttonEditSong:(UIButton *)sender
 {
     //krusty get uipicker row value
-    NSInteger songNumber=[self numberOfSongs];
+    //NSInteger songNumber=[self numberOfSongs];
+    
+    NSInteger songNumber=[picker selectedRowInComponent:0];
+    
     
     //Launch the detail song screen
     [self launchSongDetailScreen:songNumber];
