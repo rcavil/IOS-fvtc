@@ -92,16 +92,44 @@ numberOfRowsInComponent:(NSInteger)component
     
     //Add new songe entry via Shared Store
     [[SongStore SharedStore] AddSongEntry: tempSongEntry];
-    
+
     //Get count of total songs.
     NSInteger songNumber=[self numberOfSongs];
     
-    //Lauch the detail song screen
+    //Launch the detail song screen
+    [self launchSongDetailScreen:songNumber];
+    
+  }
 
-     DetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"showDetail"];
-     [detail setSongIndex:songNumber];
-     [self.navigationController pushViewController: detail animated: YES];
+- (IBAction)buttonEditSong:(UIButton *)sender
+{
+    NSInteger songNumber=[self numberOfSongs];
     
-    
+    //Launch the detail song screen
+    [self launchSongDetailScreen:songNumber];
 }
+
+- (IBAction)buttonDeleteSong:(UIButton *)sender {
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Lauch song detail screen because it was chosen
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
+        NSInteger songEntries=[self numberOfSongs];
+        [[segue destinationViewController] setSongIndex:songEntries];
+    }
+}
+
+- (void)launchSongDetailScreen:(NSInteger) songEntry
+{
+    DetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"showDetail"];
+
+    [detail setSongIndex:songEntry];
+    
+    [self presentViewController:detail animated:YES completion:nil];
+
+}
+
 @end

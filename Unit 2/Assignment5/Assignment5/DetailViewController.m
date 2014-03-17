@@ -84,8 +84,7 @@
     [tempSong setAlbum:[songAlbumField text]];
     
     //dismisses the current view
-    [[self navigationController] popViewControllerAnimated:YES];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) setSongIndex:(long) index
@@ -97,4 +96,11 @@
 - (IBAction)hideKeyboard:(UITextField *)sender {
     [sender resignFirstResponder];
 }
+- (IBAction)cancelButtonClick:(UIButton *)sender
+{
+    //dismisses the current view
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 @end

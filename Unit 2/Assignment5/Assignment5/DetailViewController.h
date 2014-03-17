@@ -23,6 +23,8 @@
 
 //Declare Actions
 - (IBAction)saveButtonClick:(UIButton *)sender;
+- (IBAction)cancelButtonClick:(UIButton *)sender;
+
 //- (IBAction)hideKeyboard:(UITextField *)sender;
 
 @end

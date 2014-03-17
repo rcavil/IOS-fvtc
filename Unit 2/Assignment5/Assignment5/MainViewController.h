@@ -21,5 +21,7 @@
 
 //Actions
 - (IBAction)buttonAddSong:(UIButton *)sender;
+- (IBAction)buttonEditSong:(UIButton *)sender;
+- (IBAction)buttonDeleteSong:(UIButton *)sender;
 
 @end
