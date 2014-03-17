@@ -103,18 +103,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="1Sw-5h-WMG" eventType="editingDidEndOnExit" id="sIn-uG-00v"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CYQ-3H-al6">
                                 <rect key="frame" x="126" y="117" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="1Sw-5h-WMG" eventType="editingDidEndOnExit" id="AxQ-BK-cfH"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="6JP-g8-VCD">
                                 <rect key="frame" x="126" y="161" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="1Sw-5h-WMG" eventType="editingDidEndOnExit" id="yV5-xN-MJ0"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Song Detail" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="hK0-hO-LTN">
                                 <rect key="frame" x="15" y="20" width="280" height="42"/>

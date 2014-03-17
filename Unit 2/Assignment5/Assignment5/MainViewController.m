@@ -29,20 +29,17 @@
     
     //Set the number of picker columns for the uipickerview
     _pickerColumns=1;
-    
-    NSInteger songEntries=[self numberOfSongs];
-    
-    //Populate the picker columns with the song entries in the array
-    
     _songs  = [[NSMutableArray alloc] init];
-    for (NSInteger i=0; i<=songEntries; i++)
-    {
-        SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex:i];
-        NSString *obj = [tempSong songName];
-        [_songs addObject:obj];
-    }
-
+    
+    [self initialPopulatePickerViewValues];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self rePopulatePickerViewValues];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,6 +100,7 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (IBAction)buttonEditSong:(UIButton *)sender
 {
+    //krusty get uipicker row value
     NSInteger songNumber=[self numberOfSongs];
     
     //Launch the detail song screen
@@ -129,6 +127,36 @@ numberOfRowsInComponent:(NSInteger)component
     [detail setSongIndex:songEntry];
     
     [self presentViewController:detail animated:YES completion:nil];
+}
+
+-(void) initialPopulatePickerViewValues
+{
+    //Populate the picker columns with the song entries in the array
+    NSInteger songEntries=[self numberOfSongs];
+
+    for (NSInteger i=0; i<=songEntries; i++)
+    {
+        SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex:i];
+        NSString *obj = [tempSong songName];
+        [_songs addObject:obj];
+    }
+
+}
+
+
+-(void) rePopulatePickerViewValues
+{
+    //Populate the picker columns with the song entries in the array
+    NSInteger songEntries=[self numberOfSongs];
+    
+    for (NSInteger i=0; i<=songEntries; i++)
+    {
+        SongEntry *tempSong = [[SongStore SharedStore] SongAtIndex:i];
+        NSString *obj = [tempSong songName];
+        [_songs replaceObjectAtIndex:i withObject:obj];
+    }
+    
+    [picker reloadAllComponents];
 
 }
 

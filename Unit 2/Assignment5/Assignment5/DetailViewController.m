@@ -96,6 +96,7 @@
 - (IBAction)hideKeyboard:(UITextField *)sender {
     [sender resignFirstResponder];
 }
+
 - (IBAction)cancelButtonClick:(UIButton *)sender
 {
     //dismisses the current view
