@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+
+//Properties declared
+
+//Number of columns in combination picker
+@property int pickerColumns;
+
+
+//Outlets
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+
+//Actions
+- (IBAction)buttonAddSong:(UIButton *)sender;
 
 @end

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E40DA32318D61CC200F6635C"
+               BlueprintIdentifier = "E40DA36A18D625B300F6635C"
                BuildableName = "Assignment5.app"
                BlueprintName = "Assignment5"
                ReferencedContainer = "container:Assignment5.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E40DA34418D61CC200F6635C"
+               BlueprintIdentifier = "E40DA38E18D625B300F6635C"
                BuildableName = "Assignment5Tests.xctest"
                BlueprintName = "Assignment5Tests"
                ReferencedContainer = "container:Assignment5.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40DA32318D61CC200F6635C"
+            BlueprintIdentifier = "E40DA36A18D625B300F6635C"
             BuildableName = "Assignment5.app"
             BlueprintName = "Assignment5"
             ReferencedContainer = "container:Assignment5.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40DA32318D61CC200F6635C"
+            BlueprintIdentifier = "E40DA36A18D625B300F6635C"
             BuildableName = "Assignment5.app"
             BlueprintName = "Assignment5"
             ReferencedContainer = "container:Assignment5.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E40DA32318D61CC200F6635C"
+            BlueprintIdentifier = "E40DA36A18D625B300F6635C"
             BuildableName = "Assignment5.app"
             BlueprintName = "Assignment5"
             ReferencedContainer = "container:Assignment5.xcodeproj">
