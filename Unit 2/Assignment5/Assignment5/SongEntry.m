@@ -96,7 +96,7 @@
                                @"Reality",
                                nil];
         
-    //temp song variable
+    //temp song variable for current entry being worked on
     SongEntry *tempSongEntry = [[SongEntry alloc] init];
     
     //random numbers to pick

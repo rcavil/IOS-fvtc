@@ -12,17 +12,21 @@
 @interface SongStore : NSObject
 
 {
+    //Array to hold all song values
     NSMutableArray *_songs;
 }
 
+//Declare static reference to shared store
 + (SongStore *) SharedStore;
-- (void) AddSongEntry:(SongEntry *) song;
-- (SongEntry *) SongAtIndex:(NSInteger) index;
+
+//Declare fields used by this class
 - (NSInteger) Count;
+- (SongEntry *) SongAtIndex:(NSInteger) index;
+
+//Declare methods used by this class
+- (void) AddSongEntry:(SongEntry *) song;
 - (void) RemoveSongAtIndex:(NSInteger) index;
 - (void) Save;
 - (void) Load;
-
-
 
 @end

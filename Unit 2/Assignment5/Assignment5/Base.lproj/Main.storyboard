@@ -150,7 +150,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonClick:" destination="1Sw-5h-WMG" eventType="touchUpInside" id="lxI-3Y-c9E"/>
-                                    <action selector="saveButtonClick:" destination="1Sw-5h-WMG" eventType="touchUpInside" id="Q4z-94-6mb"/>
                                 </connections>
                             </button>
                         </subviews>

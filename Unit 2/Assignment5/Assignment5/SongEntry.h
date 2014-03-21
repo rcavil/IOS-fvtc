@@ -11,10 +11,14 @@
 @interface SongEntry : NSObject
 
 {
+    //Declare song attributes
+    
     NSString *_songName;
     NSString *_artist;
     NSString *_album;
 }
+
+//Declare song getters and setters
 
 - (void) setSongName:(NSString *)strSongName;
 - (NSString *) songName;

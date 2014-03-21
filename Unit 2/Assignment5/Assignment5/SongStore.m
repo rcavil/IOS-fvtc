@@ -39,23 +39,32 @@
 
 - (void) AddSongEntry:(SongEntry *)song
 {
+    //Add the passed in song object
     [_songs addObject:song];
 }
 
 - (SongEntry *) SongAtIndex:(NSInteger) index
 {
+    //Return the song object for the passed in song number
     return [_songs objectAtIndex:index];
 }
 
 - (NSInteger) Count
 {
+    //return the number of songs in the songs array
     return [_songs count];
 }
 
 - (void) RemoveSongAtIndex:(NSInteger) index
 {
-    [_songs removeObjectAtIndex:index];
+    //Check to see if there are any songs to remove
+    if (_songs>0)
+    {
+      //Removed the passed in song number
+      [_songs removeObjectAtIndex:index];
+    }
 }
+
 
 - (NSString *) ItemArchivePath
 {
@@ -83,6 +92,7 @@
         NSLog(@"Problem with Save.");
     }
 }
+
 
 -(void) Load
 {

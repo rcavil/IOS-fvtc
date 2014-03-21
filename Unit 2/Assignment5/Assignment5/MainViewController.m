@@ -70,7 +70,6 @@ numberOfRowsInComponent:(NSInteger)component
 {
     //Return the value of the uipickerview control chosen
     return [_songs objectAtIndex:row];
-
 }
 
 
@@ -80,18 +79,27 @@ numberOfRowsInComponent:(NSInteger)component
 }
 
 
-- (IBAction)buttonAddSong:(UIButton *)sender {
+- (IBAction)buttonAddSong:(UIButton *)sender
+{
     //temp song variable that will be use to create a new song entry
     SongEntry *tempSongEntry = [[SongEntry alloc] init];
     [tempSongEntry setSongName:@""];
     [tempSongEntry setArtist:@""];
     [tempSongEntry setAlbum:@""];
     
-    //Add new songe entry via Shared Store
-    [[SongStore SharedStore] AddSongEntry: tempSongEntry];
+    //Add new song entry via Shared Store
+     [[SongStore SharedStore] AddSongEntry: tempSongEntry];
 
+    //Add new entry to to picker control array
+    [_songs addObject:[tempSongEntry songName]];
+
+    
     //Get count of total songs.
     NSInteger songNumber=[self numberOfSongs];
+    
+    [self rePopulatePickerViewValues];
+    //Select the entry that was just added in the picker control
+    [picker selectRow:[self numberOfSongs] inComponent:0 animated:YES];
     
     //Launch the detail song screen
     [self launchSongDetailScreen:songNumber];
@@ -100,17 +108,31 @@ numberOfRowsInComponent:(NSInteger)component
 
 - (IBAction)buttonEditSong:(UIButton *)sender
 {
-    //krusty get uipicker row value
-    //NSInteger songNumber=[self numberOfSongs];
-    
+    //Get the current row from the picker that represents
+    //the song number in the array
     NSInteger songNumber=[picker selectedRowInComponent:0];
     
-    
-    //Launch the detail song screen
-    [self launchSongDetailScreen:songNumber];
+    if ([self numberOfSongs] >= 0)
+    {
+      //Launch the detail song screen
+      [self launchSongDetailScreen:songNumber];
+    }
 }
 
-- (IBAction)buttonDeleteSong:(UIButton *)sender {
+- (IBAction)buttonDeleteSong:(UIButton *)sender
+{
+    //Get the current row from the picker that represents
+    //the song number in the array
+    NSInteger songNumber=[picker selectedRowInComponent:0];
+
+    //Remove the song entry via Shared Store if there are any to remove
+    if ([self numberOfSongs] >= 0)
+    {
+      [[SongStore SharedStore] RemoveSongAtIndex:songNumber];
+        [_songs removeObjectAtIndex:(songNumber)];
+    }
+    
+    [self rePopulatePickerViewValues];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
