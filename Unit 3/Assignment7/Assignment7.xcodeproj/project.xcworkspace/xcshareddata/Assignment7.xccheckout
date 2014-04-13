@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>26A1EBB9-D0D9-4518-8D06-7A0327646E10</string>
+	<string>05A7B87F-87FB-4F81-B785-51C2F467D3CA</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Assignment6</string>
+	<string>Assignment7</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>77E8B717-1A38-40F8-A067-8D01FDFED298</key>
+		<key>EB01C3AA-0E8E-4C33-8682-8E0AE866BE41</key>
 		<string>https://github.com/rcavil/IOS-fvtc.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Unit 2/Assignment6/Assignment6.xcodeproj/project.xcworkspace</string>
+	<string>Unit 3/Assignment7/Assignment7.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>77E8B717-1A38-40F8-A067-8D01FDFED298</key>
+		<key>EB01C3AA-0E8E-4C33-8682-8E0AE866BE41</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>77E8B717-1A38-40F8-A067-8D01FDFED298</string>
+	<string>EB01C3AA-0E8E-4C33-8682-8E0AE866BE41</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>77E8B717-1A38-40F8-A067-8D01FDFED298</string>
+			<string>EB01C3AA-0E8E-4C33-8682-8E0AE866BE41</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IOS-fvtc</string>
 		</dict>
