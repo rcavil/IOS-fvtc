@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ftg-lw-jco">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Osh-YT-5Qq"/>
+                        <viewControllerLayoutGuide type="bottom" id="BfI-FW-jhd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-Xy-c0N">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Zoom" id="D64-DG-360">
+                                        <connections>
+                                            <action selector="zoom:" destination="vXZ-lx-hvc" id="7pO-NH-Vjs"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Map Type" id="csy-f9-RPp">
+                                        <connections>
+                                            <action selector="type:" destination="vXZ-lx-hvc" id="s7q-0x-IKD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-Ha-Cmf">
+                                <rect key="frame" x="0.0" y="65" width="320" height="454"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DMv-Xy-c0N" firstAttribute="top" secondItem="KEr-Ha-Cmf" secondAttribute="bottom" constant="5" id="3HS-Tb-74g"/>
+                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="trailing" secondItem="DMv-Xy-c0N" secondAttribute="trailing" id="93I-ZG-nxe"/>
+                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="top" secondItem="Osh-YT-5Qq" secondAttribute="bottom" constant="1" id="KSL-oL-ynR"/>
+                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="leading" secondItem="DMv-Xy-c0N" secondAttribute="leading" id="Sbe-GX-Qad"/>
+                            <constraint firstAttribute="bottom" secondItem="DMv-Xy-c0N" secondAttribute="bottom" id="kEn-Bg-Pvb"/>
+                            <constraint firstAttribute="trailing" secondItem="KEr-Ha-Cmf" secondAttribute="trailing" id="omY-UI-rwc"/>
+                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="v86-4h-AvV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FjB-Qi-0lq"/>
+                    <connections>
+                        <outlet property="mapView" destination="KEr-Ha-Cmf" id="GXW-B7-Obk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="86"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2UA-dV-HJe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftg-lw-jco" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O8R-Cf-Phc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lDS-eq-wAd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nA-DH-E3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="481" y="86"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
