@@ -21,6 +21,7 @@
     [super viewDidLoad];
     _mapView.showsUserLocation = YES;
     _mapView.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +45,26 @@
         _mapView.mapType = MKMapTypeSatellite;
     else
         _mapView.mapType = MKMapTypeStandard;
+}
+
+- (IBAction)search:(id)sender
+{
+    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+    request.naturalLanguageQuery = @"restaurant";
+    request.region = _mapView.region;
+    
+    MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
+    
+    [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        for (MKMapItem *item in response.mapItems)
+        {
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            annotation.coordinate = item.placemark.coordinate;
+            annotation.title      = item.name;
+            annotation.subtitle   = item.placemark.title;
+            [_mapView addAnnotation:annotation];
+        }
+    }];
 }
 
 - (void)mapView:(MKMapView *)mapView

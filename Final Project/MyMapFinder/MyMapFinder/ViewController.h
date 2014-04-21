@@ -17,4 +17,7 @@
 
 - (IBAction)zoom:(id)sender;
 - (IBAction)type:(id)sender;
+- (IBAction)search:(id)sender;
+
+
 @end

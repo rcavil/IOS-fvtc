@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ftg-lw-jco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ftg-lw-jco">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -30,10 +30,15 @@
                                             <action selector="type:" destination="vXZ-lx-hvc" id="s7q-0x-IKD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Search" id="q49-9U-mdm">
+                                        <connections>
+                                            <action selector="search:" destination="vXZ-lx-hvc" id="Yhw-5N-sxS"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-Ha-Cmf">
-                                <rect key="frame" x="0.0" y="65" width="320" height="454"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-Ha-Cmf">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
