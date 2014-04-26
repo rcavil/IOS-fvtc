@@ -10,12 +10,17 @@
 #import <MapKit/MapKit.h>
 
 
-@interface ViewController ()
-
+@interface UIViewController()
 @end
 
 @implementation ViewController
 
+<#methods#>
+
+@end
+
+
+@end
 - (void)viewDidLoad
 {
     [super viewDidLoad];
