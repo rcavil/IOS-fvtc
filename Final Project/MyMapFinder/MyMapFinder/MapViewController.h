@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MapViewController.h
 //  MyMapFinder
 //
 //  Created by Ron Cavil on 4/14/14.

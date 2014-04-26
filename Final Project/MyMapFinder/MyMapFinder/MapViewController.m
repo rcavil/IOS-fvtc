@@ -1,26 +1,21 @@
 //
-//  ViewController.m
+//  MapViewController.m
 //  MyMapFinder
 //
 //  Created by Ron Cavil on 4/14/14.
 //  Copyright (c) 2014 Ron Cavil. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapViewController.h"
 #import <MapKit/MapKit.h>
 
 
-@interface UIViewController()
+@interface ViewController ()
+
 @end
 
 @implementation ViewController
 
-<#methods#>
-
-@end
-
-
-@end
 - (void)viewDidLoad
 {
     [super viewDidLoad];

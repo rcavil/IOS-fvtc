@@ -14,7 +14,7 @@
 		BBF8CFAC18FCB5D1006B6E88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFAB18FCB5D1006B6E88 /* main.m */; };
 		BBF8CFB018FCB5D1006B6E88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFAF18FCB5D1006B6E88 /* AppDelegate.m */; };
 		BBF8CFB318FCB5D1006B6E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF8CFB118FCB5D1006B6E88 /* Main.storyboard */; };
-		BBF8CFB618FCB5D1006B6E88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFB518FCB5D1006B6E88 /* ViewController.m */; };
+		BBF8CFB618FCB5D1006B6E88 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFB518FCB5D1006B6E88 /* MapViewController.m */; };
 		BBF8CFB818FCB5D1006B6E88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBF8CFB718FCB5D1006B6E88 /* Images.xcassets */; };
 		BBF8CFBF18FCB5D1006B6E88 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CFBE18FCB5D1006B6E88 /* XCTest.framework */; };
 		BBF8CFC018FCB5D1006B6E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CF9F18FCB5D1006B6E88 /* Foundation.framework */; };
@@ -22,6 +22,9 @@
 		BBF8CFC918FCB5D1006B6E88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBF8CFC718FCB5D1006B6E88 /* InfoPlist.strings */; };
 		BBF8CFCB18FCB5D1006B6E88 /* MyMapFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFCA18FCB5D1006B6E88 /* MyMapFinderTests.m */; };
 		BBF8CFD518FCB702006B6E88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CFD418FCB702006B6E88 /* MapKit.framework */; };
+		E4C48FEA190C166D006E15BE /* SearchEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */; };
+		E4C48FEF190C17EC006E15BE /* SearchEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FEE190C17EC006E15BE /* SearchEntry.m */; };
+		E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FF1190C1E6E006E15BE /* SearchEntryStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +49,8 @@
 		BBF8CFAE18FCB5D1006B6E88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBF8CFAF18FCB5D1006B6E88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BBF8CFB218FCB5D1006B6E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BBF8CFB418FCB5D1006B6E88 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BBF8CFB518FCB5D1006B6E88 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BBF8CFB418FCB5D1006B6E88 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		BBF8CFB518FCB5D1006B6E88 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		BBF8CFB718FCB5D1006B6E88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BBF8CFBD18FCB5D1006B6E88 /* MyMapFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMapFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF8CFBE18FCB5D1006B6E88 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -55,6 +58,12 @@
 		BBF8CFC818FCB5D1006B6E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBF8CFCA18FCB5D1006B6E88 /* MyMapFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapFinderTests.m; sourceTree = "<group>"; };
 		BBF8CFD418FCB702006B6E88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E4C48FE8190C166D006E15BE /* SearchEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntryTableViewController.h; sourceTree = "<group>"; };
+		E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntryTableViewController.m; sourceTree = "<group>"; };
+		E4C48FED190C17EC006E15BE /* SearchEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntry.h; sourceTree = "<group>"; };
+		E4C48FEE190C17EC006E15BE /* SearchEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntry.m; sourceTree = "<group>"; };
+		E4C48FF0190C1E6E006E15BE /* SearchEntryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntryStore.h; sourceTree = "<group>"; };
+		E4C48FF1190C1E6E006E15BE /* SearchEntryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntryStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +125,11 @@
 		BBF8CFA518FCB5D1006B6E88 /* MyMapFinder */ = {
 			isa = PBXGroup;
 			children = (
+				E4C48FEC190C17C8006E15BE /* Models */,
+				E4C48FEB190C16DB006E15BE /* ViewControllers */,
 				BBF8CFAE18FCB5D1006B6E88 /* AppDelegate.h */,
 				BBF8CFAF18FCB5D1006B6E88 /* AppDelegate.m */,
 				BBF8CFB118FCB5D1006B6E88 /* Main.storyboard */,
-				BBF8CFB418FCB5D1006B6E88 /* ViewController.h */,
-				BBF8CFB518FCB5D1006B6E88 /* ViewController.m */,
 				BBF8CFB718FCB5D1006B6E88 /* Images.xcassets */,
 				BBF8CFA618FCB5D1006B6E88 /* Supporting Files */,
 			);
@@ -154,6 +163,28 @@
 				BBF8CFC718FCB5D1006B6E88 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4C48FEB190C16DB006E15BE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBF8CFB418FCB5D1006B6E88 /* MapViewController.h */,
+				BBF8CFB518FCB5D1006B6E88 /* MapViewController.m */,
+				E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */,
+				E4C48FE8190C166D006E15BE /* SearchEntryTableViewController.h */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E4C48FEC190C17C8006E15BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4C48FED190C17EC006E15BE /* SearchEntry.h */,
+				E4C48FEE190C17EC006E15BE /* SearchEntry.m */,
+				E4C48FF0190C1E6E006E15BE /* SearchEntryStore.h */,
+				E4C48FF1190C1E6E006E15BE /* SearchEntryStore.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBF8CFB618FCB5D1006B6E88 /* ViewController.m in Sources */,
+				BBF8CFB618FCB5D1006B6E88 /* MapViewController.m in Sources */,
 				BBF8CFB018FCB5D1006B6E88 /* AppDelegate.m in Sources */,
 				BBF8CFAC18FCB5D1006B6E88 /* main.m in Sources */,
+				E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */,
+				E4C48FEF190C17EC006E15BE /* SearchEntry.m in Sources */,
+				E4C48FEA190C166D006E15BE /* SearchEntryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
