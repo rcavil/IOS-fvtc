@@ -10,7 +10,7 @@
 
 @implementation SearchEntry
 
-//Setters and Getters for song related information
+//Setters and Getters for search entry related information
 
 - (void) setEntryName:(NSString *)strEntryName
 {
@@ -22,14 +22,14 @@
     return _entryName;
 }
 
-+(SearchEntry*) RandomEntry
++(SearchEntry*) DefaultEntry
 {
     //data for generating randoms
-    NSArray *entryNames = [[NSArray alloc] initWithObjects:@"Rockin",
-                               @"Breaking",
-                               @"High",
-                               @"Sweet",
-                               @"Welcome",
+    NSArray *entryNames = [[NSArray alloc] initWithObjects:@"Bars",
+                               @"Soccer Fields",
+                               @"Restaurants",
+                               @"Grocery Stores",
+                               @"Gas",
                                nil];
 
     //temp entry variable

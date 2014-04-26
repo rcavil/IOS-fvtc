@@ -8,7 +8,7 @@
 
 #import "SearchEntryTableViewController.h"
 #import "SearchEntryStore.h"
-
+#import "EditSearchEntryViewController.h"
 
 @interface SearchEntryTableViewController ()
 {
@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     
-    //Create left swipe gesture to delete songs
+    //Create left swipe gesture to delete the search entries
     UISwipeGestureRecognizer *gestureLeft;
     gestureLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
     gestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -97,7 +97,7 @@
     // Configure the cell...
     SearchEntry *tempEntry =[[SearchEntryStore SharedStore] EntryAtIndex:[indexPath row]];
     
-    //Display the Song name, song artist in the table view
+    //Display the search entry in the table view
     NSString *display = [[NSString alloc] initWithFormat:@"%@", [tempEntry entryName]];
     [[cell textLabel] setText:display];
     
@@ -154,4 +154,26 @@
 }
 */
 
+- (IBAction)buttonAddEntry:(UIBarButtonItem *)sender
+  {
+      
+      
+      //temp search entry variable that will be use to create a new search entry
+      SearchEntry *tempEntry = [[SearchEntry alloc] init];
+      [tempEntry setEntryName:@""];
+      
+      //Add new search entry via Shared Store
+      [[SearchEntryStore SharedStore] AddEntry: tempEntry];
+      
+      //Lauch the detail search entry screen
+       
+       //Get count of total entries.  Minus 1 due to zero bassed array
+       NSInteger entryColumn=[[SearchEntryStore SharedStore] Count]-1;
+      
+      EditSearchEntryViewController *editSearchEntry = [self.storyboard instantiateViewControllerWithIdentifier:@"editSearchEntry"];
+      [editSearchEntry setSearchEntryIndex:entryColumn];
+      [self.navigationController pushViewController: editSearchEntry animated: YES];
+      
+      
+  }
 @end

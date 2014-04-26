@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchEntryTableViewController : UITableViewController
+- (IBAction)buttonAddEntry:(UIBarButtonItem *)sender;
 
 @end

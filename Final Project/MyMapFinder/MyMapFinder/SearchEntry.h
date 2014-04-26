@@ -20,7 +20,7 @@
 
 
 //Declare static method used to prefill random entry values
-+(SearchEntry *) RandomEntry;
++(SearchEntry *) DefaultEntry;
 
 
 @end

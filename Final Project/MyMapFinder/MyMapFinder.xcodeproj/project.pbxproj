@@ -25,6 +25,7 @@
 		E4C48FEA190C166D006E15BE /* SearchEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */; };
 		E4C48FEF190C17EC006E15BE /* SearchEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FEE190C17EC006E15BE /* SearchEntry.m */; };
 		E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FF1190C1E6E006E15BE /* SearchEntryStore.m */; };
+		E4C48FF5190C54E6006E15BE /* EditSearchEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C48FF4190C54E6006E15BE /* EditSearchEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		E4C48FEE190C17EC006E15BE /* SearchEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntry.m; sourceTree = "<group>"; };
 		E4C48FF0190C1E6E006E15BE /* SearchEntryStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntryStore.h; sourceTree = "<group>"; };
 		E4C48FF1190C1E6E006E15BE /* SearchEntryStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntryStore.m; sourceTree = "<group>"; };
+		E4C48FF3190C54E6006E15BE /* EditSearchEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSearchEntryViewController.h; sourceTree = "<group>"; };
+		E4C48FF4190C54E6006E15BE /* EditSearchEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSearchEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +175,8 @@
 				BBF8CFB518FCB5D1006B6E88 /* MapViewController.m */,
 				E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */,
 				E4C48FE8190C166D006E15BE /* SearchEntryTableViewController.h */,
+				E4C48FF3190C54E6006E15BE /* EditSearchEntryViewController.h */,
+				E4C48FF4190C54E6006E15BE /* EditSearchEntryViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			files = (
 				BBF8CFB618FCB5D1006B6E88 /* MapViewController.m in Sources */,
 				BBF8CFB018FCB5D1006B6E88 /* AppDelegate.m in Sources */,
+				E4C48FF5190C54E6006E15BE /* EditSearchEntryViewController.m in Sources */,
 				BBF8CFAC18FCB5D1006B6E88 /* main.m in Sources */,
 				E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */,
 				E4C48FEF190C17EC006E15BE /* SearchEntry.m in Sources */,

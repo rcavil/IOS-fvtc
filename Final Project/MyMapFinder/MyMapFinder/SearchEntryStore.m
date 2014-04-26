@@ -19,9 +19,9 @@
         
         //Add 3 random default entries
         
-        [_searchEntry addObject:[SearchEntry RandomEntry]];
-        [_searchEntry addObject:[SearchEntry RandomEntry]];
-        [_searchEntry addObject:[SearchEntry RandomEntry]];
+        [_searchEntry addObject:[SearchEntry DefaultEntry]];
+        [_searchEntry addObject:[SearchEntry DefaultEntry]];
+        [_searchEntry addObject:[SearchEntry DefaultEntry]];
         
       }
     return self;
