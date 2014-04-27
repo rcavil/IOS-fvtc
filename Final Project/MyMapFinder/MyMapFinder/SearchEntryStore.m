@@ -16,13 +16,12 @@
     if (self)
       {
         _searchEntry = [[NSMutableArray alloc] init];
+          [self setCurrentEntry:-1];
+        //Add default entries
         
-        //Add 3 random default entries
-        
-        [_searchEntry addObject:[SearchEntry DefaultEntry]];
-        [_searchEntry addObject:[SearchEntry DefaultEntry]];
-        [_searchEntry addObject:[SearchEntry DefaultEntry]];
-        
+          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"soccer fields")]];
+          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
+          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
       }
     return self;
 }
@@ -38,6 +37,48 @@
       }
     return sharedStore;
 }
+
+
+- (void) setCurrentEntry:(int)intCurrentEntry
+{
+    _currentEntry=&intCurrentEntry;
+}
+
+- (int) currentEntry
+{
+    return *(_currentEntry);
+}
+
+
+
+- (void) incrementCurrentEntry
+{
+    int currentEntryValue= [self currentEntry];
+    if (currentEntryValue==-1)
+    {
+        [self setCurrentEntry:0];
+    }
+    else
+    {
+        [self setCurrentEntry:(currentEntryValue+1)];
+    }
+}
+
+- (void) decrementCurrentEntry
+{
+
+    int currentEntryValue= [self currentEntry];
+    if (currentEntryValue==-1)
+    {
+        [self setCurrentEntry:0];
+    }
+    else
+    {
+        [self setCurrentEntry:(currentEntryValue-1)];
+    }
+    
+}
+
 
 - (void) AddEntry:(SearchEntry *)searchEntry
 {

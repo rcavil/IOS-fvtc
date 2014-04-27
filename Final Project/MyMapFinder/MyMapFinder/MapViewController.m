@@ -16,7 +16,7 @@
 @end
 
 @implementation ViewController
-@synthesize manualMapSearchText;
+@synthesize manualMapSearchText, currentSearchEntryItemText;
 
 - (void)viewDidLoad
 {
@@ -79,26 +79,34 @@ didUpdateUserLocation:
     if ([searchtype isEqual:@"manual"])
     {
         request.naturalLanguageQuery = manualMapSearchText.text;
-        [self performActualMapSearch:request];
     }
     else
     {
-        SearchEntry *searchEntryItem;
-        
-        
-        NSInteger autoSearchCount =[[SearchEntryStore SharedStore] Count];
-        
-        for (int loop = 0; loop <= (autoSearchCount-1); loop++)
-        {
-            searchEntryItem=[[SearchEntryStore SharedStore] EntryAtIndex:loop];
-            
-            request.naturalLanguageQuery = searchEntryItem.entryName;
-            [self performActualMapSearch:request];
-        }
-        
+        SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
+        request.naturalLanguageQuery=searchEntryItem.entryName;
     }
     
+    [self performActualMapSearch:request];
+
 }
+
+- (SearchEntry *) getCurrentSearchEntry
+{
+    int intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
+    
+    if (intCurrentEntry==-1)
+    {
+        [self setNextSearchEntryItem];
+        
+        intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
+    }
+    
+    SearchEntry *searchEntryItem=[[SearchEntryStore SharedStore] EntryAtIndex:intCurrentEntry];
+
+
+    return searchEntryItem;
+}
+
 
 - (void)createMapAnnotations: (MKLocalSearchResponse *)response
 {
@@ -140,6 +148,37 @@ didUpdateUserLocation:
     [_mapView setRegion:region animated:NO];
 
 }
+
+- (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
+{
+    [self setNextSearchEntryItem];
+}
+
+- (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
+{
+    [self setPrevSearchEntryItem];
+}
+
+- (void) setCurrentSearchEntryLabel
+{
+    
+    SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
+    currentSearchEntryItemText.text=searchEntryItem.entryName;
+}
+
+- (void) setNextSearchEntryItem
+{
+    [[SearchEntryStore SharedStore] incrementCurrentEntry];
+    [self setCurrentSearchEntryLabel];
+}
+
+- (void) setPrevSearchEntryItem
+{
+    [[SearchEntryStore SharedStore] decrementCurrentEntry];
+    [self setCurrentSearchEntryLabel];
+}
+
+
 @end
 
 

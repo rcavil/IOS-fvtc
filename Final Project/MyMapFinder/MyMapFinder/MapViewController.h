@@ -14,12 +14,14 @@
 
 //@interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITextField *manualMapSearchText;
+@property (weak, nonatomic) IBOutlet UILabel *currentSearchEntryItemText;
 
 - (IBAction)zoom:(id)sender;
 - (IBAction)type:(id)sender;
 - (IBAction)search:(id)sender;
 - (IBAction)manualMapSearch:(UITextField *)sender;
-
-@property (weak, nonatomic) IBOutlet UITextField *manualMapSearchText;
+- (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender;
+- (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender;
 
 @end

@@ -22,27 +22,15 @@
     return _entryName;
 }
 
-+(SearchEntry*) DefaultEntry
++(SearchEntry*) AddDefaultEntry:(NSString *)strEntryName
 {
-    //data for generating randoms
-    NSArray *entryNames = [[NSArray alloc] initWithObjects:@"Bars",
-                               @"Soccer Fields",
-                               @"Restaurants",
-                               @"Grocery Stores",
-                               @"Gas",
-                               nil];
 
     //temp entry variable
     SearchEntry *tempEntry = [[SearchEntry alloc] init];
     
+    //NSString *entryName = [[NSString alloc] initWithFormat:@"%@", name];
     
-    //random numbers to pick
-    int name = arc4random() % [entryNames count];
-    
-    
-    NSString *entryName = [[NSString alloc] initWithFormat:@"%@", [entryNames objectAtIndex:name]];
-    
-    [tempEntry setEntryName:entryName];
+    [tempEntry setEntryName:strEntryName];
     
     return tempEntry;
 

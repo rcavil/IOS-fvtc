@@ -20,7 +20,7 @@
 
 
 //Declare static method used to prefill random entry values
-+(SearchEntry *) DefaultEntry;
++(SearchEntry *) AddDefaultEntry:(NSString *)strEntryName;
 
 
 @end
