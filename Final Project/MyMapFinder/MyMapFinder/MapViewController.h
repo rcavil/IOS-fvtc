@@ -18,6 +18,8 @@
 - (IBAction)zoom:(id)sender;
 - (IBAction)type:(id)sender;
 - (IBAction)search:(id)sender;
+- (IBAction)manualMapSearch:(UITextField *)sender;
 
+@property (weak, nonatomic) IBOutlet UITextField *manualMapSearchText;
 
 @end
