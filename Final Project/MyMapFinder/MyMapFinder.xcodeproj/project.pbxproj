@@ -59,6 +59,9 @@
 		BBF8CFC818FCB5D1006B6E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBF8CFCA18FCB5D1006B6E88 /* MyMapFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapFinderTests.m; sourceTree = "<group>"; };
 		BBF8CFD418FCB702006B6E88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E467BAB51911EF310064C442 /* Map_Search_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_120_120.png; path = ../Map_Search_120_120.png; sourceTree = "<group>"; };
+		E467BAB61911EF500064C442 /* Map_Search_76_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_76_76.png; path = ../Map_Search_76_76.png; sourceTree = "<group>"; };
+		E467BAB71911EF6A0064C442 /* Map_Search_60_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_60_60.png; path = ../Map_Search_60_60.png; sourceTree = "<group>"; };
 		E4C48FE8190C166D006E15BE /* SearchEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntryTableViewController.h; sourceTree = "<group>"; };
 		E4C48FE9190C166D006E15BE /* SearchEntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEntryTableViewController.m; sourceTree = "<group>"; };
 		E4C48FED190C17EC006E15BE /* SearchEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEntry.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 		BBF8CFA518FCB5D1006B6E88 /* MyMapFinder */ = {
 			isa = PBXGroup;
 			children = (
+				E467BAB81911EFDE0064C442 /* Images */,
+				E467BAAC1911E87B0064C442 /* iPad */,
 				E4C48FEC190C17C8006E15BE /* Models */,
 				E4C48FEB190C16DB006E15BE /* ViewControllers */,
 				BBF8CFAE18FCB5D1006B6E88 /* AppDelegate.h */,
@@ -166,6 +171,23 @@
 				BBF8CFC718FCB5D1006B6E88 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E467BAAC1911E87B0064C442 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		E467BAB81911EFDE0064C442 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E467BAB71911EF6A0064C442 /* Map_Search_60_60.png */,
+				E467BAB61911EF500064C442 /* Map_Search_76_76.png */,
+				E467BAB51911EF310064C442 /* Map_Search_120_120.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		E4C48FEB190C16DB006E15BE /* ViewControllers */ = {
@@ -418,12 +440,14 @@
 		BBF8CFCF18FCB5D1006B6E88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyMapFinder/MyMapFinder-Prefix.pch";
 				INFOPLIST_FILE = "MyMapFinder/MyMapFinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -431,12 +455,14 @@
 		BBF8CFD018FCB5D1006B6E88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyMapFinder/MyMapFinder-Prefix.pch";
 				INFOPLIST_FILE = "MyMapFinder/MyMapFinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

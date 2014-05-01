@@ -20,9 +20,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
-    _mapView.showsUserLocation = YES;
+    [super viewDidLoad];
     _mapView.delegate = self;
+    _mapView.showsUserLocation = YES;
     [self zoomStart];
 }
 
@@ -144,9 +144,8 @@ didUpdateUserLocation:
     MKUserLocation *userLocation = _mapView.userLocation;
     MKCoordinateRegion region =
     MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 5, 5);
+                                        userLocation.location.coordinate, 50, 50);
     [_mapView setRegion:region animated:NO];
-
 }
 
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
