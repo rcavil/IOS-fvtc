@@ -80,4 +80,9 @@
   {
      [sender resignFirstResponder];
   }
+
+- (IBAction)buttonSearchEntryCancel:(UIButton *)sender
+{
+    
+}
 @end

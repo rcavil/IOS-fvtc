@@ -14,11 +14,12 @@
     
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *textSearchEntry;
-
 -(void) setSearchEntryIndex:(long) index;
 
 - (IBAction)buttonSearchEntrySave:(id)sender;
+- (IBAction)buttonSearchEntryCancel:(UIButton *)sender;
 - (IBAction)hideKeyboard:(UITextField *)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *textSearchEntry;
 
 @end

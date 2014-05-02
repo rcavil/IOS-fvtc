@@ -15,13 +15,13 @@
     self = [super init];
     if (self)
       {
-        _searchEntry = [[NSMutableArray alloc] init];
+        _searchEntries = [[NSMutableArray alloc] init];
           [self setCurrentEntry:-1];
         //Add default entries
-        
-          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"soccer fields")]];
-          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
-          [_searchEntry addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
+
+          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
+          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
+          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"soccer fields")]];
       }
     return self;
 }
@@ -82,22 +82,24 @@
 
 - (void) AddEntry:(SearchEntry *)searchEntry
 {
-    [_searchEntry addObject:searchEntry];
+    [_searchEntries addObject:searchEntry];
+    [self SortSearchEntries];
 }
 
 - (SearchEntry *) EntryAtIndex:(NSInteger) index
 {
-    return [_searchEntry objectAtIndex:index];
+    return [_searchEntries objectAtIndex:index];
 }
 
 - (NSInteger) Count
 {
-    return [_searchEntry count];
+    return [_searchEntries count];
 }
 
 - (void) RemoveEntryAtIndex:(NSInteger) index
 {
-    [_searchEntry removeObjectAtIndex:index];
+    [_searchEntries removeObjectAtIndex:index];
+    [self SortSearchEntries];
 }
 
 - (NSString *) ItemArchivePath
@@ -116,11 +118,12 @@
 
 -(void) Save
 {
+    
     NSString *path = [self ItemArchivePath];
-    BOOL success = [NSKeyedArchiver archiveRootObject:_searchEntry toFile:path];
+    BOOL success = [NSKeyedArchiver archiveRootObject:_searchEntries toFile:path];
     if (success)
     {
-        NSLog(@"Saved:%@", _searchEntry);
+        NSLog(@"Saved:%@", _searchEntries);
     }
     else
     {
@@ -131,12 +134,21 @@
 -(void) Load
 {
     NSString *path = [self ItemArchivePath];
-    _searchEntry = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    if (!_searchEntry)
+    _searchEntries = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!_searchEntries)
       {
-        _searchEntry = [[NSMutableArray alloc] init];
+        _searchEntries = [[NSMutableArray alloc] init];
       }
 }
 
+-(void) SortSearchEntries
+{
+    //krusty
+    //[_searchEntries sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    //[_searchEntries sortUsingSelector:@selector(compare:)];
+    //[_searchEntries sortUsingSelector: @selector(compare:)];
+    
+    //[_searchEntries sortUsingSelector:@selector(localizedCaseInsensitiveCompare: )];
+}
 
 @end

@@ -12,7 +12,7 @@
 @interface SearchEntryStore : NSObject
 
 {
-    NSMutableArray *_searchEntry;
+    NSMutableArray *_searchEntries;
     int *_currentEntry;
 }
 

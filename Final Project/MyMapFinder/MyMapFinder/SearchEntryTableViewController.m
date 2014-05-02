@@ -39,10 +39,14 @@
       [[self tableView] addGestureRecognizer:gestureLeft];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[self tableView] reloadData];
+}
 
 -(void) handleSwipeFrom:(UISwipeGestureRecognizer *) sender
 {
-    NSLog(@"Swiped");
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         //functionality to remove current item due to swipe gesture
@@ -72,14 +76,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [[SearchEntryStore SharedStore] Count];
 }
