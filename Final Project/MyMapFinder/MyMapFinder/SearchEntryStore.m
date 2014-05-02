@@ -40,20 +40,27 @@
 
 
 - (void) setCurrentEntry:(int)intCurrentEntry
-{
-    _currentEntry=&intCurrentEntry;
+{  //krusty
+    NSLog(@"intCurrentEntry= %i",intCurrentEntry);
+    //NSLog(@"_currentEntry before= %i",_currentEntry);
+
+    _currentEntry=intCurrentEntry;
 }
 
 - (int) currentEntry
 {
-    return *(_currentEntry);
+    return (_currentEntry);
 }
 
 
 
 - (void) incrementCurrentEntry
 {
-    int currentEntryValue= [self currentEntry];
+    //krusty
+    
+    //int currentEntryValue= [self currentEntry];
+    int currentEntryValue= (_currentEntry);
+    
     if (currentEntryValue==-1)
     {
         [self setCurrentEntry:0];

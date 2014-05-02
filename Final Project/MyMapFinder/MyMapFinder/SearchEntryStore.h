@@ -13,7 +13,7 @@
 
 {
     NSMutableArray *_searchEntries;
-    int *_currentEntry;
+    int _currentEntry;
 }
 
 + (SearchEntryStore *) SharedStore;
