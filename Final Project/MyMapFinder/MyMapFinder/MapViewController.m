@@ -92,7 +92,7 @@ didUpdateUserLocation:
 
 - (SearchEntry *) getCurrentSearchEntry
 {
-    int intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
+    NSInteger intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
     
     if (intCurrentEntry==-1)
     {

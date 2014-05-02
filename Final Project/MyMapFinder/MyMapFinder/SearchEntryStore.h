@@ -13,21 +13,21 @@
 
 {
     NSMutableArray *_searchEntries;
-    int _currentEntry;
+    NSInteger _currentEntry;
 }
 
 + (SearchEntryStore *) SharedStore;
 - (SearchEntry *) EntryAtIndex:(NSInteger) index;
 
 - (NSInteger) Count;
-- (int) currentEntry;
+- (NSInteger) currentEntry;
 
 - (void) AddEntry:(SearchEntry *) searchEntry   ;
 - (void) RemoveEntryAtIndex:(NSInteger) index;
 - (void) Save;
 - (void) Load;
 
-- (void) setCurrentEntry:(int) intCurrentEntry;
+- (void) setCurrentEntry:(NSInteger) intCurrentEntry;
 - (void) incrementCurrentEntry;
 - (void) decrementCurrentEntry;
 
