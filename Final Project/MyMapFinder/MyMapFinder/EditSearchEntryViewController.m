@@ -58,7 +58,9 @@
 
 - (IBAction)buttonSearchEntrySave:(UIButton *)sender
 {
-    NSString *newEntryName =[textSearchEntry text];
+    NSString *origEntryName =[textSearchEntry text];
+    NSString *newEntryName = [origEntryName lowercaseString];
+    
     if (newEntryName.length==0)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry is blank"
@@ -73,14 +75,14 @@
     else
     {
       //See if new entry already exists
-      BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:([textSearchEntry text])];
+      BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:(newEntryName)];
     
       if (newEntryExists==false)
       {
           //Save the search entry information from the search entry textboxes
         
           SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex:_searchEntryIndex];
-          [tempEntry setEntryName:[textSearchEntry text]];
+          [tempEntry setEntryName:newEntryName];
  
           //dismisses the current view
           [[self navigationController] popViewControllerAnimated:YES];

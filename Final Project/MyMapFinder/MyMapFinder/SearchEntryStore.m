@@ -40,9 +40,8 @@
 
 
 - (void) setCurrentEntry:(NSInteger)intCurrentEntry
-{  //krusty
+{
     NSLog(@"intCurrentEntry= %li",(NSInteger)intCurrentEntry);
-    //NSLog(@"_currentEntry before= %i",_currentEntry);
 
     _currentEntry=intCurrentEntry;
 }
@@ -56,7 +55,6 @@
 
 - (void) incrementCurrentEntry
 {
-    //krusty
     
     NSInteger numberOfEntries= [self Count];
     NSInteger currentEntryValue= (_currentEntry);
@@ -74,11 +72,16 @@
 
 - (void) decrementCurrentEntry
 {
-
+    NSInteger numberOfEntries= [self Count];
     NSInteger currentEntryValue= [self currentEntry];
+    
     if (currentEntryValue==-1)
     {
         [self setCurrentEntry:0];
+    }
+    else if (currentEntryValue==0)
+    {
+        [self setCurrentEntry:(numberOfEntries-1)];
     }
     else
     {
