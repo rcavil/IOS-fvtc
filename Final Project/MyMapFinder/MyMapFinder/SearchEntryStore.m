@@ -41,7 +41,7 @@
 
 - (void) setCurrentEntry:(NSInteger)intCurrentEntry
 {  //krusty
-    NSLog(@"intCurrentEntry= %li",(long)intCurrentEntry);
+    NSLog(@"intCurrentEntry= %li",(NSInteger)intCurrentEntry);
     //NSLog(@"_currentEntry before= %i",_currentEntry);
 
     _currentEntry=intCurrentEntry;
@@ -109,6 +109,21 @@
     [_searchEntries removeObjectAtIndex:index];
     [self SortSearchEntries];
 }
+
+- (BOOL) SearchEntryExists: (NSString*) searchEntry
+{
+    bool entryExists = false;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"entryName like[c] %@",searchEntry];    
+    
+    NSArray *results = [_searchEntries filteredArrayUsingPredicate:predicate];
+    if ([results count]>0)
+    {
+        entryExists=true;
+    }
+    
+    return entryExists;
+}
+
 
 - (NSString *) ItemArchivePath
 {

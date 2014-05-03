@@ -10,13 +10,13 @@
 
 @interface EditSearchEntryViewController : UIViewController
 {
-    long _searchEntryIndex;
+    NSInteger _searchEntryIndex;
     
 }
 
--(void) setSearchEntryIndex:(long) index;
+-(void) setSearchEntryIndex:(NSInteger) index;
 
-- (IBAction)buttonSearchEntrySave:(id)sender;
+- (IBAction)buttonSearchEntrySave:(UIButton *)sender;
 - (IBAction)buttonSearchEntryCancel:(UIButton *)sender;
 - (IBAction)hideKeyboard:(UITextField *)sender;
 

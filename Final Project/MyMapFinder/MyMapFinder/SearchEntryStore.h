@@ -26,6 +26,7 @@
 - (void) RemoveEntryAtIndex:(NSInteger) index;
 - (void) Save;
 - (void) Load;
+- (BOOL) SearchEntryExists: (NSString*) searchEntry;
 
 - (void) setCurrentEntry:(NSInteger) intCurrentEntry;
 - (void) incrementCurrentEntry;

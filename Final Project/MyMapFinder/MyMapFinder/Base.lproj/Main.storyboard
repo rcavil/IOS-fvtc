@@ -161,13 +161,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Search Entry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbF-ey-tjB">
-                                <rect key="frame" x="87" y="69" width="144" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3GY-f4-O5j">
                                 <rect key="frame" x="66" y="103" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -195,13 +188,12 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonSearchEntryCancel:" destination="Vvh-6w-8cd" eventType="touchUpInside" id="po2-el-iX4"/>
-                                    <action selector="buttonSearchEntrySave:" destination="Vvh-6w-8cd" eventType="touchUpInside" id="Q9P-KP-0zo"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Song Detail" id="2KV-Ik-LEN"/>
+                    <navigationItem key="navigationItem" title="New Search Entry" id="2KV-Ik-LEN" userLabel="Navigation Item - Search Item"/>
                     <connections>
                         <outlet property="textSearchEntry" destination="3GY-f4-O5j" id="z74-an-rui"/>
                     </connections>

@@ -30,11 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [textSearchEntry becomeFirstResponder];
     
     //Fill the entry text boxes for the entry array value that was passed in
     
     SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex: _searchEntryIndex];
-    
     [textSearchEntry setText:[tempEntry entryName]];
     
 }
@@ -56,20 +56,50 @@
 }
 */
 
-- (IBAction)buttonSearchEntrySave:(id)sender
+- (IBAction)buttonSearchEntrySave:(UIButton *)sender
 {
+    NSString *newEntryName =[textSearchEntry text];
+    if (newEntryName.length==0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry is blank"
+                                                        message:@"Add cancelled."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [textSearchEntry becomeFirstResponder];
+        
+    }
+    else
+    {
+      //See if new entry already exists
+      BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:([textSearchEntry text])];
     
-    //Save the search entry information from the search entry textboxes
-    
-    SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex:_searchEntryIndex];
-    
-    [tempEntry setEntryName:[textSearchEntry text]];
-    
-    //dismisses the current view
-    [[self navigationController] popViewControllerAnimated:YES];
+      if (newEntryExists==false)
+      {
+          //Save the search entry information from the search entry textboxes
+        
+          SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex:_searchEntryIndex];
+          [tempEntry setEntryName:[textSearchEntry text]];
+ 
+          //dismisses the current view
+          [[self navigationController] popViewControllerAnimated:YES];
+      }
+      else
+      {
+          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry already exists"
+                                                          message:@"Add cancelled."
+                                                         delegate:self
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+          [alert show];
+          [textSearchEntry becomeFirstResponder];
+      }
+    }
+ 
 }
 
--(void) setSearchEntryIndex:(long) index
+-(void) setSearchEntryIndex:(NSInteger) index
 {
     _searchEntryIndex = index;
     
@@ -83,6 +113,9 @@
 
 - (IBAction)buttonSearchEntryCancel:(UIButton *)sender
 {
+    [[SearchEntryStore SharedStore] RemoveEntryAtIndex:_searchEntryIndex];
     
+    //dismisses the current view
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 @end

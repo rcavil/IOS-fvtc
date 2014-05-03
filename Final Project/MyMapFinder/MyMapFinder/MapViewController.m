@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad
 {
+    currentSearchEntryItemText.text=@"";
     [super viewDidLoad];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
