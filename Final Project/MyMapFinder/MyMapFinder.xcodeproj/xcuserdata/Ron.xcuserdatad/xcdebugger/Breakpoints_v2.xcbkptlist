@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyMapFinder/MapViewController.h"
-            timestampString = "420848922.813083"
+            timestampString = "420851112.503047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "@interface ViewController"
             landmarkType = "2">
          </BreakpointContent>

@@ -21,12 +21,7 @@
                                             <action selector="type:" destination="vXZ-lx-hvc" id="s7q-0x-IKD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="search" id="q49-9U-mdm">
-                                        <connections>
-                                            <action selector="search:" destination="vXZ-lx-hvc" id="Yhw-5N-sxS"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="edit" id="dIs-mL-6Hq">
+                                    <barButtonItem title="Edit Search Items" id="dIs-mL-6Hq">
                                         <connections>
                                             <segue destination="a1z-s4-zhi" kind="push" id="nod-JP-8Sd"/>
                                         </connections>
@@ -39,11 +34,6 @@
                                     <barButtonItem systemItem="fastForward" id="qTl-Xh-7Wm">
                                         <connections>
                                             <action selector="nextSearchEntryItem:" destination="vXZ-lx-hvc" id="GTL-dZ-gmU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="action" id="2pX-tq-AHk">
-                                        <connections>
-                                            <action selector="originalMapZoom:" destination="vXZ-lx-hvc" id="HTe-rI-1Rq"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

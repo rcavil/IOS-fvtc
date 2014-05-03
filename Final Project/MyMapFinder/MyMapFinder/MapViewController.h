@@ -17,10 +17,8 @@
 
 // Actions
 - (IBAction)type:(id)sender;
-- (IBAction)search:(id)sender;
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender;
-- (IBAction)originalMapZoom:(id)sender;
 
 // Properties
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;

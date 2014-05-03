@@ -29,17 +29,15 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
 
     //Set first search entry and then search for it
     if (appLaunched==false)
     {
         appLaunched=true;
-        
         [self setNextSearchEntryItem];
-        [self searchMapLogicMain];
     }
     
-    [super viewDidAppear:animated];
 
 }
 
@@ -62,13 +60,10 @@
 {
     if (_mapView.mapType == MKMapTypeStandard)
         _mapView.mapType = MKMapTypeSatellite;
+    else if (_mapView.mapType == MKMapTypeSatellite)
+        _mapView.mapType = MKMapTypeHybrid;
     else
         _mapView.mapType = MKMapTypeStandard;
-}
-
-- (IBAction)search:(id)sender
-{
-    [self searchMapLogicMain];
 }
 
 - (void)mapView:(MKMapView *)mapView
@@ -77,6 +72,11 @@ didUpdateUserLocation:
 {
     _mapView.centerCoordinate =
     userLocation.location.coordinate;
+}
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    [self searchMapLogicMain];
 }
 
 
@@ -116,8 +116,7 @@ didUpdateUserLocation:
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
-        //annotation.subtitle   = item.placemark.subThoroughfare;
-        annotation.subtitle   = [NSString stringWithFormat:@"%@/%@/%@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];        
+        annotation.subtitle   = [NSString stringWithFormat:@"%@ %@ %@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];
         [_mapView addAnnotation:annotation];
     }
 
@@ -130,7 +129,6 @@ didUpdateUserLocation:
     
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
      {
-         
          [self createMapAnnotations:response];
      }
      ];
@@ -165,11 +163,6 @@ didUpdateUserLocation:
     [self searchMapLogicMain];
 }
 
-- (IBAction)originalMapZoom:(id)sender
-{
-     [self zoomStart];
-}
-
 - (void) setCurrentSearchEntryLabel
 {
     SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
@@ -193,7 +186,6 @@ didUpdateUserLocation:
     [searchBar resignFirstResponder];
     [self searchMapLogicMain];
 }
-
 
 
 @end
