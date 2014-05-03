@@ -41,8 +41,6 @@
 
 - (void) setCurrentEntry:(NSInteger)intCurrentEntry
 {
-    NSLog(@"intCurrentEntry= %li",(NSInteger)intCurrentEntry);
-
     _currentEntry=intCurrentEntry;
 }
 
@@ -94,7 +92,6 @@
 - (void) AddEntry:(SearchEntry *)searchEntry
 {
     [_searchEntries addObject:searchEntry];
-    [self SortSearchEntries];
 }
 
 - (SearchEntry *) EntryAtIndex:(NSInteger) index
@@ -110,7 +107,6 @@
 - (void) RemoveEntryAtIndex:(NSInteger) index
 {
     [_searchEntries removeObjectAtIndex:index];
-    [self SortSearchEntries];
 }
 
 - (BOOL) SearchEntryExists: (NSString*) searchEntry
@@ -144,7 +140,7 @@
 
 -(void) Save
 {
-    
+   //krusty Need to save coredata
     NSString *path = [self ItemArchivePath];
     BOOL success = [NSKeyedArchiver archiveRootObject:_searchEntries toFile:path];
     if (success)
@@ -159,6 +155,8 @@
 
 -(void) Load
 {
+    //krusty need to load from coredata
+    
     NSString *path = [self ItemArchivePath];
     _searchEntries = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     if (!_searchEntries)
@@ -169,12 +167,10 @@
 
 -(void) SortSearchEntries
 {
-    //krusty
-    //[_searchEntries sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    //[_searchEntries sortUsingSelector:@selector(compare:)];
-    //[_searchEntries sortUsingSelector: @selector(compare:)];
     
-    //[_searchEntries sortUsingSelector:@selector(localizedCaseInsensitiveCompare: )];
+    NSSortDescriptor* sortByName = [NSSortDescriptor sortDescriptorWithKey:@"entryName" ascending:YES];
+    [_searchEntries sortUsingDescriptors:[NSArray arrayWithObject:sortByName]];
+    
 }
 
 @end

@@ -22,10 +22,13 @@
 - (NSInteger) Count;
 - (NSInteger) currentEntry;
 
-- (void) AddEntry:(SearchEntry *) searchEntry   ;
+- (void) AddEntry:(SearchEntry *) searchEntry;
 - (void) RemoveEntryAtIndex:(NSInteger) index;
+- (void) SortSearchEntries;
+
 - (void) Save;
 - (void) Load;
+
 - (BOOL) SearchEntryExists: (NSString*) searchEntry;
 
 - (void) setCurrentEntry:(NSInteger) intCurrentEntry;

@@ -62,6 +62,7 @@
             [[SearchEntryStore SharedStore] RemoveEntryAtIndex:[indexPath row]];
             [[self tableView] endUpdates];
         }
+                
     }
     
 }

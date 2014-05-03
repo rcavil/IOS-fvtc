@@ -83,6 +83,10 @@
         
           SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex:_searchEntryIndex];
           [tempEntry setEntryName:newEntryName];
+                    
+          
+          [[SearchEntryStore SharedStore] SortSearchEntries];
+          
  
           //dismisses the current view
           [[self navigationController] popViewControllerAnimated:YES];
