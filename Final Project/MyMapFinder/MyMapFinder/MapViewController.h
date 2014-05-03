@@ -9,20 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
-<MKMapViewDelegate>
-
-//@interface ViewController : UIViewController
+@interface ViewController : UIViewController <MKMapViewDelegate,UISearchBarDelegate>
+{
+    bool appLaunched;
+}
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UITextField *manualMapSearchText;
-@property (weak, nonatomic) IBOutlet UILabel *currentSearchEntryItemText;
 
-- (IBAction)zoom:(id)sender;
+// Actions
 - (IBAction)type:(id)sender;
 - (IBAction)search:(id)sender;
-- (IBAction)manualMapSearch:(UITextField *)sender;
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)originalMapZoom:(id)sender;
+
+// Properties
+@property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
+
 
 @end

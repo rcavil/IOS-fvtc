@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ftg-lw-jco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ftg-lw-jco">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -8,15 +8,11 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Osh-YT-5Qq"/>
-                        <viewControllerLayoutGuide type="bottom" id="BfI-FW-jhd"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMv-Xy-c0N">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DMv-Xy-c0N">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -52,47 +48,26 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-Ha-Cmf">
-                                <rect key="frame" x="0.0" y="98" width="320" height="421"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="KEr-Ha-Cmf">
+                                <rect key="frame" x="0.0" y="110" width="320" height="414"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Manual Map Search" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Pk-4b-oDW">
-                                <rect key="frame" x="20" y="66" width="143" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="143" id="owh-t8-oLS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" text="" id="RAi-Dx-3eb">
+                                <rect key="frame" x="0.0" y="73" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="manualMapSearch:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="y4W-yi-j5o"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="exB-YW-UUN"/>
                                 </connections>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUv-r6-cr7">
-                                <rect key="frame" x="176" y="70" width="115" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1Pk-4b-oDW" firstAttribute="top" secondItem="Osh-YT-5Qq" secondAttribute="bottom" constant="2" id="3GO-Zy-7uF"/>
-                            <constraint firstItem="DMv-Xy-c0N" firstAttribute="trailing" secondItem="KEr-Ha-Cmf" secondAttribute="trailing" id="7xb-xJ-Qlh"/>
-                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="leading" secondItem="DMv-Xy-c0N" secondAttribute="leading" id="bez-w7-00F"/>
-                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n7k-hu-FGh"/>
-                            <constraint firstItem="DMv-Xy-c0N" firstAttribute="top" secondItem="KEr-Ha-Cmf" secondAttribute="bottom" constant="5" id="nh2-jp-eVA"/>
-                            <constraint firstAttribute="bottom" secondItem="DMv-Xy-c0N" secondAttribute="bottom" id="q22-FM-zLY"/>
-                            <constraint firstItem="1Pk-4b-oDW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="yHy-lm-5q3"/>
-                            <constraint firstItem="KEr-Ha-Cmf" firstAttribute="top" secondItem="1Pk-4b-oDW" secondAttribute="bottom" constant="2" id="yoD-Cl-hRS"/>
-                            <constraint firstAttribute="trailing" secondItem="DMv-Xy-c0N" secondAttribute="trailing" id="yub-BT-7pm"/>
-                        </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Map Finder" id="FjB-Qi-0lq"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="currentSearchEntryItemText" destination="OUv-r6-cr7" id="J9g-vw-Pk1"/>
-                        <outlet property="manualMapSearchText" destination="1Pk-4b-oDW" id="IMZ-qt-Sqs"/>
+                        <outlet property="mapSearchBar" destination="RAi-Dx-3eb" id="NPA-2Q-G58"/>
                         <outlet property="mapView" destination="KEr-Ha-Cmf" id="GXW-B7-Obk"/>
                     </connections>
                 </viewController>
@@ -158,15 +133,11 @@
         <scene sceneID="mlz-f5-34F">
             <objects>
                 <viewController storyboardIdentifier="editSearchEntry" title="Detail" id="Vvh-6w-8cd" customClass="EditSearchEntryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fCN-FJ-7eN"/>
-                        <viewControllerLayoutGuide type="bottom" id="2jm-8a-dt9"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cez-a7-bZK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3GY-f4-O5j">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3GY-f4-O5j">
                                 <rect key="frame" x="66" y="103" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -175,7 +146,7 @@
                                     <action selector="hideKeyboard:" destination="Vvh-6w-8cd" eventType="editingDidEndOnExit" id="ghm-nz-Gvg"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wh-dr-Svx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Wh-dr-Svx">
                                 <rect key="frame" x="81" y="149" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
@@ -185,7 +156,7 @@
                                     <action selector="buttonSearchEntrySave:" destination="Vvh-6w-8cd" eventType="touchUpInside" id="LCr-jP-Ylq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxY-2r-imI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gxY-2r-imI">
                                 <rect key="frame" x="187" y="149" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel">

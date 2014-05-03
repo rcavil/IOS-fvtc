@@ -16,15 +16,31 @@
 @end
 
 @implementation ViewController
-@synthesize manualMapSearchText, currentSearchEntryItemText;
+@synthesize mapSearchBar;
 
 - (void)viewDidLoad
 {
-    currentSearchEntryItemText.text=@"";
     [super viewDidLoad];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
     [self zoomStart];
+ 
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+
+    //Set first search entry and then search for it
+    if (appLaunched==false)
+    {
+        appLaunched=true;
+        
+        [self setNextSearchEntryItem];
+        [self searchMapLogicMain];
+    }
+    
+    [super viewDidAppear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,14 +68,7 @@
 
 - (IBAction)search:(id)sender
 {
-    [self searchMapLogicMain:(@"auto")];
-}
-
-- (IBAction)manualMapSearch:(UITextField *)sender
-{
-    [sender resignFirstResponder];
-    [self searchMapLogicMain:(@"manual")];
-
+    [self searchMapLogicMain];
 }
 
 - (void)mapView:(MKMapView *)mapView
@@ -71,22 +80,13 @@ didUpdateUserLocation:
 }
 
 
-- (void) searchMapLogicMain:(NSString *)searchtype
+- (void) searchMapLogicMain
 {
     MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
     request.region = _mapView.region;
     
 
-    if ([searchtype isEqual:@"manual"])
-    {
-        request.naturalLanguageQuery = manualMapSearchText.text;
-    }
-    else
-    {
-        SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
-        request.naturalLanguageQuery=searchEntryItem.entryName;
-    }
-    
+    request.naturalLanguageQuery = mapSearchBar.text;
     [self performActualMapSearch:request];
 
 }
@@ -116,7 +116,8 @@ didUpdateUserLocation:
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
-        annotation.subtitle   = item.placemark.thoroughfare;
+        //annotation.subtitle   = item.placemark.subThoroughfare;
+        annotation.subtitle   = [NSString stringWithFormat:@"%@/%@/%@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];        
         [_mapView addAnnotation:annotation];
     }
 
@@ -145,11 +146,6 @@ didUpdateUserLocation:
 {
     MKUserLocation *userLocation = _mapView.userLocation;
     MKCoordinateRegion region =
-    /*
-    MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 50, 50);
-    */
-    
     MKCoordinateRegionMakeWithDistance (
                                         userLocation.location.coordinate, 5000, 5000);
     
@@ -160,13 +156,13 @@ didUpdateUserLocation:
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
 {
     [self setNextSearchEntryItem];
-    [self searchMapLogicMain:(@"auto")];
+    [self searchMapLogicMain];
 }
 
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
 {
     [self setPrevSearchEntryItem];
-    [self searchMapLogicMain:(@"auto")];
+    [self searchMapLogicMain];
 }
 
 - (IBAction)originalMapZoom:(id)sender
@@ -176,9 +172,8 @@ didUpdateUserLocation:
 
 - (void) setCurrentSearchEntryLabel
 {
-    
     SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
-    currentSearchEntryItemText.text=searchEntryItem.entryName;
+    mapSearchBar.text=searchEntryItem.entryName;
 }
 
 - (void) setNextSearchEntryItem
@@ -192,6 +187,13 @@ didUpdateUserLocation:
     [[SearchEntryStore SharedStore] decrementCurrentEntry];
     [self setCurrentSearchEntryLabel];
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [self searchMapLogicMain];
+}
+
 
 
 @end
