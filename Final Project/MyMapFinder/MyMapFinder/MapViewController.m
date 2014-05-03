@@ -145,8 +145,15 @@ didUpdateUserLocation:
 {
     MKUserLocation *userLocation = _mapView.userLocation;
     MKCoordinateRegion region =
+    /*
     MKCoordinateRegionMakeWithDistance (
                                         userLocation.location.coordinate, 50, 50);
+    */
+    
+    MKCoordinateRegionMakeWithDistance (
+                                        userLocation.location.coordinate, 5000, 5000);
+    
+    
     [_mapView setRegion:region animated:NO];
 }
 

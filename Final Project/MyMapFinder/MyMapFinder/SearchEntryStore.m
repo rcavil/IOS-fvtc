@@ -19,9 +19,9 @@
           [self setCurrentEntry:-1];
         //Add default entries
 
+          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
           [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"lodging")]];
           [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
-          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"soccer fields")]];
       }
     return self;
 }

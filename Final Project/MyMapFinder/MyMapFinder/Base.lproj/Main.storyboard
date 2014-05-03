@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - My Map Finder-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                             <constraint firstAttribute="trailing" secondItem="DMv-Xy-c0N" secondAttribute="trailing" id="yub-BT-7pm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FjB-Qi-0lq"/>
+                    <navigationItem key="navigationItem" title="My Map Finder" id="FjB-Qi-0lq"/>
                     <connections>
                         <outlet property="currentSearchEntryItemText" destination="OUv-r6-cr7" id="J9g-vw-Pk1"/>
                         <outlet property="manualMapSearchText" destination="1Pk-4b-oDW" id="IMZ-qt-Sqs"/>
@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="867" y="86"/>
         </scene>
-        <!--Search Entry Table View Controller-->
+        <!--Search Entry Table View Controller - Saved Search Entries-->
         <scene sceneID="mkO-gz-ByA">
             <objects>
                 <tableViewController id="a1z-s4-zhi" customClass="SearchEntryTableViewController" sceneMemberID="viewController">
@@ -124,7 +124,7 @@
                             <outlet property="delegate" destination="a1z-s4-zhi" id="621-qn-kED"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LWE-75-k8T">
+                    <navigationItem key="navigationItem" title="Saved Search Entries" id="LWE-75-k8T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="deK-nC-X0Z">
                             <connections>
                                 <action selector="buttonAddEntry:" destination="a1z-s4-zhi" id="dkP-za-23O"/>
