@@ -45,6 +45,11 @@
                                             <action selector="nextSearchEntryItem:" destination="vXZ-lx-hvc" id="GTL-dZ-gmU"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="action" id="2pX-tq-AHk">
+                                        <connections>
+                                            <action selector="originalMapZoom:" destination="vXZ-lx-hvc" id="HTe-rI-1Rq"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="KEr-Ha-Cmf">

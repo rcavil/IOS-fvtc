@@ -23,5 +23,6 @@
 - (IBAction)manualMapSearch:(UITextField *)sender;
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender;
+- (IBAction)originalMapZoom:(id)sender;
 
 @end

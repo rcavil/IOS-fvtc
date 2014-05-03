@@ -124,6 +124,7 @@ didUpdateUserLocation:
 
 - (void) performActualMapSearch: ( MKLocalSearchRequest *) request
 {
+    [self clearMapAnnotations];
     MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error)
@@ -152,11 +153,18 @@ didUpdateUserLocation:
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
 {
     [self setNextSearchEntryItem];
+    [self searchMapLogicMain:(@"auto")];
 }
 
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
 {
     [self setPrevSearchEntryItem];
+    [self searchMapLogicMain:(@"auto")];
+}
+
+- (IBAction)originalMapZoom:(id)sender
+{
+     [self zoomStart];
 }
 
 - (void) setCurrentSearchEntryLabel
