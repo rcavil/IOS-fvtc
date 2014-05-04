@@ -25,9 +25,11 @@
     [super viewDidLoad];
     _mapView.delegate = self;
     _mapView.showsUserLocation = YES;
+    
     [self zoomStart];
- 
+    
 }
+
 
 - (void) viewDidAppear:(BOOL)animated
 {
@@ -36,6 +38,8 @@
     //Set first search entry and then search for it
     if (appLaunched==false)
     {
+        [_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+
         appLaunched=true;
         [self setNextSearchEntryItem];
     }
@@ -62,27 +66,20 @@
         _mapView.mapType = MKMapTypeStandard;
 }
 
+/*
 - (void)mapView:(MKMapView *)mapView
 didUpdateUserLocation:
 (MKUserLocation *)userLocation
 {
+    //krusty
     _mapView.centerCoordinate =
     userLocation.location.coordinate;
 }
+*/
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self searchMapLogicMain];
-}
-
-
-- (IBAction)zoom:(id)sender
-{
-    MKUserLocation *userLocation = _mapView.userLocation;
-    MKCoordinateRegion region =
-    MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 20000, 20000);
-    [_mapView setRegion:region animated:NO];
 }
 
 - (void) zoomStart
@@ -92,8 +89,9 @@ didUpdateUserLocation:
     MKCoordinateRegionMakeWithDistance (
                                         userLocation.location.coordinate, 5000, 5000);
     
-    
     [_mapView setRegion:region animated:NO];
+    
+
 }
 
 
