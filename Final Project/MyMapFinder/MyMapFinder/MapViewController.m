@@ -18,6 +18,8 @@
 @implementation ViewController
 @synthesize mapSearchBar;
 
+
+//View Related Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +40,6 @@
         [self setNextSearchEntryItem];
     }
     
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,14 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)zoom:(id)sender
-{
-    MKUserLocation *userLocation = _mapView.userLocation;
-    MKCoordinateRegion region =
-    MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 20000, 20000);
-    [_mapView setRegion:region animated:NO];
-}
+
+//MapView Related Methods
+
 
 - (IBAction)type:(id)sender
 {
@@ -78,6 +74,35 @@ didUpdateUserLocation:
 {
     [self searchMapLogicMain];
 }
+
+
+- (IBAction)zoom:(id)sender
+{
+    MKUserLocation *userLocation = _mapView.userLocation;
+    MKCoordinateRegion region =
+    MKCoordinateRegionMakeWithDistance (
+                                        userLocation.location.coordinate, 20000, 20000);
+    [_mapView setRegion:region animated:NO];
+}
+
+- (void) zoomStart
+{
+    MKUserLocation *userLocation = _mapView.userLocation;
+    MKCoordinateRegion region =
+    MKCoordinateRegionMakeWithDistance (
+                                        userLocation.location.coordinate, 5000, 5000);
+    
+    
+    [_mapView setRegion:region animated:NO];
+}
+
+
+- (IBAction)currentLocationBarButton:(UIBarButtonItem *)sender
+{
+    [self zoomStart];
+}
+
+//Map search logic methods
 
 
 - (void) searchMapLogicMain
@@ -108,20 +133,6 @@ didUpdateUserLocation:
     return searchEntryItem;
 }
 
-
-- (void)createMapAnnotations: (MKLocalSearchResponse *)response
-{
-    for (MKMapItem *item in response.mapItems)
-    {
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-        annotation.coordinate = item.placemark.coordinate;
-        annotation.title      = item.name;
-        annotation.subtitle   = [NSString stringWithFormat:@"%@ %@ %@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];
-        [_mapView addAnnotation:annotation];
-    }
-
-}
-
 - (void) performActualMapSearch: ( MKLocalSearchRequest *) request
 {
     [self clearMapAnnotations];
@@ -132,23 +143,7 @@ didUpdateUserLocation:
          [self createMapAnnotations:response];
      }
      ];
-
-}
-
-- (void) clearMapAnnotations
-{
- [_mapView removeAnnotations:[_mapView annotations]];
-}
-
-- (void) zoomStart
-{
-    MKUserLocation *userLocation = _mapView.userLocation;
-    MKCoordinateRegion region =
-    MKCoordinateRegionMakeWithDistance (
-                                        userLocation.location.coordinate, 5000, 5000);
     
-    
-    [_mapView setRegion:region animated:NO];
 }
 
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
@@ -162,6 +157,7 @@ didUpdateUserLocation:
     [self setPrevSearchEntryItem];
     [self searchMapLogicMain];
 }
+
 
 - (void) setCurrentSearchEntryLabel
 {
@@ -185,6 +181,32 @@ didUpdateUserLocation:
 {
     [searchBar resignFirstResponder];
     [self searchMapLogicMain];
+}
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+//Map anotations methods
+
+- (void)createMapAnnotations: (MKLocalSearchResponse *)response
+{
+    for (MKMapItem *item in response.mapItems)
+    {
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = item.placemark.coordinate;
+        annotation.title      = item.name;
+        annotation.subtitle   = [NSString stringWithFormat:@"%@ %@ %@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];
+        [_mapView addAnnotation:annotation];
+    }
+
+}
+
+
+- (void) clearMapAnnotations
+{
+ [_mapView removeAnnotations:[_mapView annotations]];
 }
 
 

@@ -21,7 +21,7 @@
                                             <action selector="type:" destination="vXZ-lx-hvc" id="s7q-0x-IKD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Edit Search Items" id="dIs-mL-6Hq">
+                                    <barButtonItem title="Edit Items" id="dIs-mL-6Hq">
                                         <connections>
                                             <segue destination="a1z-s4-zhi" kind="push" id="nod-JP-8Sd"/>
                                         </connections>
@@ -36,16 +36,25 @@
                                             <action selector="nextSearchEntryItem:" destination="vXZ-lx-hvc" id="GTL-dZ-gmU"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="action" id="xVl-5X-QDI">
+                                        <connections>
+                                            <action selector="currentLocationBarButton:" destination="vXZ-lx-hvc" id="rjb-Rm-soy"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="KEr-Ha-Cmf">
                                 <rect key="frame" x="0.0" y="110" width="320" height="414"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <searchBar contentMode="redraw" text="" id="RAi-Dx-3eb">
+                            <searchBar contentMode="redraw" text="" showsCancelButton="YES" id="RAi-Dx-3eb">
                                 <rect key="frame" x="0.0" y="73" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="exB-YW-UUN"/>
                                 </connections>
