@@ -212,6 +212,8 @@ didUpdateUserLocation:
         
         if (newEntryExists==false)
         {
+            NSString *outputString=[NSString stringWithFormat:@"New search entry %@ has been added",newEntryName];
+            
             //temp search entry variable that will be use to create a new search entry
             SearchEntry *tempEntry = [[SearchEntry alloc] init];
             [tempEntry setEntryName:newEntryName];
@@ -221,11 +223,21 @@ didUpdateUserLocation:
 
             //Sort search items with new entry
             [[SearchEntryStore SharedStore] SortSearchEntries];
+
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:outputString
+                                                            message:@"Add completed."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
             
         }
         else
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry already exists"
+            NSString *outputString=[NSString stringWithFormat:@"New search entry %@ already exists",newEntryName];
+
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:outputString
                                                             message:@"Add cancelled."
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"

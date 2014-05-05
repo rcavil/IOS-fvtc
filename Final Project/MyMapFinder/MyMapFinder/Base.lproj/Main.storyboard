@@ -36,9 +36,10 @@
                                             <action selector="nextSearchEntryItem:" destination="vXZ-lx-hvc" id="GTL-dZ-gmU"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="action" id="xVl-5X-QDI">
+                                    <barButtonItem width="19" style="plain" systemItem="fixedSpace" id="nkP-DU-CGI"/>
+                                    <barButtonItem systemItem="action" id="vGb-Oz-x2u">
                                         <connections>
-                                            <action selector="currentLocationBarButton:" destination="vXZ-lx-hvc" id="rjb-Rm-soy"/>
+                                            <action selector="currentLocationBarButton:" destination="vXZ-lx-hvc" id="vOs-m8-0um"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -93,7 +93,9 @@
       }
       else
       {
-          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry already exists"
+          NSString *outputString=[NSString stringWithFormat:@"New search entry %@ already exists",newEntryName];
+
+          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:outputString
                                                           message:@"Add cancelled."
                                                          delegate:self
                                                 cancelButtonTitle:@"OK"
