@@ -27,7 +27,6 @@
     _mapView.showsUserLocation = YES;
     
     [self zoomStart];
-    
 }
 
 
@@ -66,16 +65,17 @@
         _mapView.mapType = MKMapTypeStandard;
 }
 
-/*
+
 - (void)mapView:(MKMapView *)mapView
 didUpdateUserLocation:
 (MKUserLocation *)userLocation
 {
-    //krusty
-    _mapView.centerCoordinate =
-    userLocation.location.coordinate;
+    //_mapView.centerCoordinate =
+    //userLocation.location.coordinate;
+    
+    [self searchMapLogicMain];
 }
-*/
+
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
@@ -90,7 +90,7 @@ didUpdateUserLocation:
                                         userLocation.location.coordinate, 5000, 5000);
     
     [_mapView setRegion:region animated:NO];
-    
+    [self searchMapLogicMain];
 
 }
 
@@ -99,6 +99,7 @@ didUpdateUserLocation:
 {
     [self zoomStart];
 }
+
 
 //Map search logic methods
 
@@ -186,6 +187,56 @@ didUpdateUserLocation:
     [searchBar resignFirstResponder];
 }
 
+
+- (IBAction)addSearchEntryBarButton:(UIBarButtonItem *)sender
+{
+   //Attempt to add new search item entry
+    
+    NSString *newEntryName = [mapSearchBar.text lowercaseString];
+    
+    if (newEntryName.length==0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry is blank"
+                                                        message:@"Add cancelled."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }
+    
+    else
+    {
+        //See if new entry already exists
+        BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:(newEntryName)];
+        
+        if (newEntryExists==false)
+        {
+            //temp search entry variable that will be use to create a new search entry
+            SearchEntry *tempEntry = [[SearchEntry alloc] init];
+            [tempEntry setEntryName:newEntryName];
+            
+            //Add new search entry via Shared Store
+            [[SearchEntryStore SharedStore] AddEntry: tempEntry];
+
+            //Sort search items with new entry
+            [[SearchEntryStore SharedStore] SortSearchEntries];
+            
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry already exists"
+                                                            message:@"Add cancelled."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+
+    
+
+}
 //Map anotations methods
 
 - (void)createMapAnnotations: (MKLocalSearchResponse *)response

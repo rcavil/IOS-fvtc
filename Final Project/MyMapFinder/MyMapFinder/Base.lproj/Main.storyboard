@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - My Map Finder-->
+        <!--View Controller - My Map Search Finder-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -63,7 +63,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My Map Finder" id="FjB-Qi-0lq"/>
+                    <navigationItem key="navigationItem" title="My Map Search Finder" id="FjB-Qi-0lq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ALT-8W-6ml">
+                            <connections>
+                                <action selector="addSearchEntryBarButton:" destination="vXZ-lx-hvc" id="8H0-Jq-1Cs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapSearchBar" destination="RAi-Dx-3eb" id="NPA-2Q-G58"/>

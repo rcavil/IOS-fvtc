@@ -20,6 +20,7 @@
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender;
 - (IBAction)currentLocationBarButton:(UIBarButtonItem *)sender;
+- (IBAction)addSearchEntryBarButton:(UIBarButtonItem *)sender;
 
 // Properties
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
