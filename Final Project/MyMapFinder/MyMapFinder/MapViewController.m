@@ -256,10 +256,10 @@ didUpdateUserLocation:
     for (MKMapItem *item in response.mapItems)
     {
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        
         annotation.coordinate = item.placemark.coordinate;
         annotation.title      = item.name;
         annotation.subtitle   = [NSString stringWithFormat:@"%@ %@ %@", item.placemark.subThoroughfare, item.placemark.thoroughfare,item.phoneNumber];
-        
         [_mapView addAnnotation:annotation];
         
     }

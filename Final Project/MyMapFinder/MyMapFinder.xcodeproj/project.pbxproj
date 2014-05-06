@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBB5E23A19186B4600AE1DB3 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB5E23919186B4600AE1DB3 /* myAnnotation.m */; };
 		BBF8CFA018FCB5D1006B6E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CF9F18FCB5D1006B6E88 /* Foundation.framework */; };
 		BBF8CFA218FCB5D1006B6E88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CFA118FCB5D1006B6E88 /* CoreGraphics.framework */; };
 		BBF8CFA418FCB5D1006B6E88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CFA318FCB5D1006B6E88 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBB5E23819186B4600AE1DB3 /* myAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
+		BBB5E23919186B4600AE1DB3 /* myAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
 		BBF8CF9C18FCB5D1006B6E88 /* MyMapFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMapFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF8CF9F18FCB5D1006B6E88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BBF8CFA118FCB5D1006B6E88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 				BBF8CFB118FCB5D1006B6E88 /* Main.storyboard */,
 				BBF8CFB718FCB5D1006B6E88 /* Images.xcassets */,
 				BBF8CFA618FCB5D1006B6E88 /* Supporting Files */,
+				BBB5E23819186B4600AE1DB3 /* myAnnotation.h */,
+				BBB5E23919186B4600AE1DB3 /* myAnnotation.m */,
 			);
 			path = MyMapFinder;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 			files = (
 				BBF8CFB618FCB5D1006B6E88 /* MapViewController.m in Sources */,
 				BBF8CFB018FCB5D1006B6E88 /* AppDelegate.m in Sources */,
+				BBB5E23A19186B4600AE1DB3 /* myAnnotation.m in Sources */,
 				E4C48FF5190C54E6006E15BE /* EditSearchEntryViewController.m in Sources */,
 				BBF8CFAC18FCB5D1006B6E88 /* main.m in Sources */,
 				E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */,
