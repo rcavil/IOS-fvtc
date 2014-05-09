@@ -40,7 +40,7 @@
         [_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
 
         appLaunched=true;
-        [self setNextSearchEntryItem];
+        [self changeSearchEntryItem:@"initial"];
     }
     
 }
@@ -52,7 +52,7 @@
 }
 
 
-//MapView Related Methods
+//View Actions
 
 
 - (IBAction)type:(id)sender
@@ -65,6 +65,24 @@
         _mapView.mapType = MKMapTypeStandard;
 }
 
+- (IBAction)currentLocationBarButton:(UIBarButtonItem *)sender
+{
+    [self zoomStart];
+}
+
+- (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
+{
+    [self changeSearchEntryItem:@"next"];
+}
+
+- (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
+{
+    [self changeSearchEntryItem:@"prev"];
+}
+
+
+//MapView Related Methods
+
 
 - (void)mapView:(MKMapView *)mapView
 didUpdateUserLocation:
@@ -73,13 +91,13 @@ didUpdateUserLocation:
     //_mapView.centerCoordinate =
     //userLocation.location.coordinate;
     
-    [self searchMapLogicMain];
+    [self searchMapLogicMain:@"updateuserlocation"];
 }
 
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
-    [self searchMapLogicMain];
+    [self searchMapLogicMain:@"finishloading"];
 }
 
 - (void) zoomStart
@@ -90,28 +108,28 @@ didUpdateUserLocation:
                                         userLocation.location.coordinate, 5000, 5000);
     
     [_mapView setRegion:region animated:NO];
-    [self searchMapLogicMain];
+    [self searchMapLogicMain:@"zoom"];
 
-}
-
-
-- (IBAction)currentLocationBarButton:(UIBarButtonItem *)sender
-{
-    [self zoomStart];
 }
 
 
 //Map search logic methods
 
 
-- (void) searchMapLogicMain
+- (void) searchMapLogicMain: (NSString *)action
 {
-    MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
-    request.region = _mapView.region;
-    
+    if (_mapView.region.center.longitude !=prevSearchLongitude && _mapView.region.center.latitude != prevSearchLatitude && mapSearchBar.text != prevSearchItem)
+    {
+        prevSearchLongitude=_mapView.region.center.longitude;
+        prevSearchLatitude=_mapView.region.center.latitude;
+        prevSearchItem=mapSearchBar.text;
+        
+        MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+        request.region = _mapView.region;
+        
+        request.naturalLanguageQuery = mapSearchBar.text;        [self performActualMapSearch:request];
 
-    request.naturalLanguageQuery = mapSearchBar.text;
-    [self performActualMapSearch:request];
+    }
 
 }
 
@@ -121,7 +139,7 @@ didUpdateUserLocation:
     
     if (intCurrentEntry==-1)
     {
-        [self setNextSearchEntryItem];
+        [self changeSearchEntryItem:@"initial"];
         
         intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
     }
@@ -145,49 +163,6 @@ didUpdateUserLocation:
     
 }
 
-- (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
-{
-    [self setNextSearchEntryItem];
-    [self searchMapLogicMain];
-}
-
-- (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
-{
-    [self setPrevSearchEntryItem];
-    [self searchMapLogicMain];
-}
-
-
-- (void) setCurrentSearchEntryLabel
-{
-    SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
-    mapSearchBar.text=searchEntryItem.entryName;
-}
-
-- (void) setNextSearchEntryItem
-{
-    [[SearchEntryStore SharedStore] incrementCurrentEntry];
-    [self setCurrentSearchEntryLabel];
-}
-
-- (void) setPrevSearchEntryItem
-{
-    [[SearchEntryStore SharedStore] decrementCurrentEntry];
-    [self setCurrentSearchEntryLabel];
-}
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-    [self searchMapLogicMain];
-}
-
--(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [searchBar resignFirstResponder];
-}
-
-
 - (IBAction)addSearchEntryBarButton:(UIBarButtonItem *)sender
 {
    //Attempt to add new search item entry
@@ -196,13 +171,7 @@ didUpdateUserLocation:
     
     if (newEntryName.length==0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"New search entry is blank"
-                                                        message:@"Add cancelled."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
+        [self displayAlertView:@"New search entry is blank" :@"Add cancelled."];
     }
     
     else
@@ -212,43 +181,73 @@ didUpdateUserLocation:
         
         if (newEntryExists==false)
         {
+            [self addNewSearchEntry:newEntryName];
+            
             NSString *outputString=[NSString stringWithFormat:@"New search entry %@ has been added",newEntryName];
-            
-            //temp search entry variable that will be use to create a new search entry
-            SearchEntry *tempEntry = [[SearchEntry alloc] init];
-            [tempEntry setEntryName:newEntryName];
-            
-            //Add new search entry via Shared Store
-            [[SearchEntryStore SharedStore] AddEntry: tempEntry];
-
-            //Sort search items with new entry
-            [[SearchEntryStore SharedStore] SortSearchEntries];
-
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:outputString
-                                                            message:@"Add completed."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-            
+            [self displayAlertView:outputString :@"Add completed."];
         }
         else
         {
             NSString *outputString=[NSString stringWithFormat:@"New search entry %@ already exists",newEntryName];
-
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:outputString
-                                                            message:@"Add cancelled."
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+           [self displayAlertView:outputString :@"Add cancelled."];
         }
     }
 
+}
+
+//Search entry related
+
+- (void) addNewSearchEntry:(NSString *)newEntryName
+{
+    //temp search entry variable that will be use to create a new search entry
+    SearchEntry *tempEntry = [[SearchEntry alloc] init];
+    [tempEntry setEntryName:newEntryName];
     
+    //Add new search entry via Shared Store
+    [[SearchEntryStore SharedStore] AddEntry: tempEntry];
+    
+    //Sort search items with new entry
+    [[SearchEntryStore SharedStore] SortSearchEntries];
 
 }
+
+
+- (void)changeSearchEntryItem:(NSString *)action
+{
+    bool runSearch=false;
+    
+
+      if ([action isEqual:@"initial"])
+      {
+          [[SearchEntryStore SharedStore] incrementCurrentEntry];
+          runSearch=false;
+      }
+    
+      else if ([action isEqual:@"next"])
+        {
+          [[SearchEntryStore SharedStore] incrementCurrentEntry];
+          runSearch=true;
+        }
+      else if ([action isEqual:@"prev"])
+        {
+          [[SearchEntryStore SharedStore] decrementCurrentEntry];
+          runSearch=true;
+        }
+   
+      //Update Search Entry Label
+    
+      SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
+      mapSearchBar.text=searchEntryItem.entryName;
+
+    
+      //Perform Search if applicable
+      if (runSearch==true)
+        {
+            [self searchMapLogicMain:@"changesearchentry"];
+        }
+}
+
+
 //Map anotations methods
 
 - (void)createMapAnnotations: (MKLocalSearchResponse *)response
@@ -270,6 +269,20 @@ didUpdateUserLocation:
 - (void) clearMapAnnotations
 {
  [_mapView removeAnnotations:[_mapView annotations]];
+}
+
+
+//Display alert view
+
+- (void) displayAlertView:(NSString *)title :(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 @end

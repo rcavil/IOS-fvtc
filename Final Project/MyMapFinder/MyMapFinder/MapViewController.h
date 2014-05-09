@@ -12,6 +12,9 @@
 @interface ViewController : UIViewController <MKMapViewDelegate,UISearchBarDelegate>
 {
     bool appLaunched;
+    float prevSearchLongitude;
+    float prevSearchLatitude;
+    NSString * prevSearchItem;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
