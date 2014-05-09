@@ -81,6 +81,17 @@
 }
 
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+  {
+    [searchBar resignFirstResponder];
+    [self searchMapLogicMain:@"manualsearch"];
+  }
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
+  {
+   [searchBar resignFirstResponder];
+  }
+
 //MapView Related Methods
 
 
