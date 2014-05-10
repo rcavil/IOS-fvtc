@@ -23,6 +23,8 @@
 		BBF8CFC918FCB5D1006B6E88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBF8CFC718FCB5D1006B6E88 /* InfoPlist.strings */; };
 		BBF8CFCB18FCB5D1006B6E88 /* MyMapFinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF8CFCA18FCB5D1006B6E88 /* MyMapFinderTests.m */; };
 		BBF8CFD518FCB702006B6E88 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF8CFD418FCB702006B6E88 /* MapKit.framework */; };
+		E41DEA16191EE33C004DC215 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41DEA15191EE33B004DC215 /* CoreData.framework */; };
+		E41DEA19191EE3CF004DC215 /* SearchEntryModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E41DEA17191EE3CF004DC215 /* SearchEntryModel.xcdatamodeld */; };
 		E48212ED191EC651006A3EBB /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E48212EC191EC651006A3EBB /* location.png */; };
 		E48212EF191EC7A2006A3EBB /* mapType.png in Resources */ = {isa = PBXBuildFile; fileRef = E48212EE191EC7A2006A3EBB /* mapType.png */; };
 		E48212F1191EC903006A3EBB /* index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = E48212F0191EC903006A3EBB /* index-cards.png */; };
@@ -65,6 +67,8 @@
 		BBF8CFC818FCB5D1006B6E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBF8CFCA18FCB5D1006B6E88 /* MyMapFinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMapFinderTests.m; sourceTree = "<group>"; };
 		BBF8CFD418FCB702006B6E88 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E41DEA15191EE33B004DC215 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E41DEA18191EE3CF004DC215 /* SearchEntryModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchEntryModel.xcdatamodel; sourceTree = "<group>"; };
 		E467BAB51911EF310064C442 /* Map_Search_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_120_120.png; path = ../Map_Search_120_120.png; sourceTree = "<group>"; };
 		E467BAB61911EF500064C442 /* Map_Search_76_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_76_76.png; path = ../Map_Search_76_76.png; sourceTree = "<group>"; };
 		E467BAB71911EF6A0064C442 /* Map_Search_60_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map_Search_60_60.png; path = ../Map_Search_60_60.png; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41DEA16191EE33C004DC215 /* CoreData.framework in Frameworks */,
 				BBF8CFD518FCB702006B6E88 /* MapKit.framework in Frameworks */,
 				BBF8CFA218FCB5D1006B6E88 /* CoreGraphics.framework in Frameworks */,
 				BBF8CFA418FCB5D1006B6E88 /* UIKit.framework in Frameworks */,
@@ -128,6 +133,7 @@
 		BBF8CF9E18FCB5D1006B6E88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E41DEA15191EE33B004DC215 /* CoreData.framework */,
 				BBF8CFD418FCB702006B6E88 /* MapKit.framework */,
 				BBF8CF9F18FCB5D1006B6E88 /* Foundation.framework */,
 				BBF8CFA118FCB5D1006B6E88 /* CoreGraphics.framework */,
@@ -220,6 +226,7 @@
 		E4C48FEC190C17C8006E15BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E41DEA17191EE3CF004DC215 /* SearchEntryModel.xcdatamodeld */,
 				E4C48FED190C17EC006E15BE /* SearchEntry.h */,
 				E4C48FEE190C17EC006E15BE /* SearchEntry.m */,
 				E4C48FF0190C1E6E006E15BE /* SearchEntryStore.h */,
@@ -334,6 +341,7 @@
 				E4C48FF5190C54E6006E15BE /* EditSearchEntryViewController.m in Sources */,
 				BBF8CFAC18FCB5D1006B6E88 /* main.m in Sources */,
 				E4C48FF2190C1E6E006E15BE /* SearchEntryStore.m in Sources */,
+				E41DEA19191EE3CF004DC215 /* SearchEntryModel.xcdatamodeld in Sources */,
 				E4C48FEF190C17EC006E15BE /* SearchEntry.m in Sources */,
 				E4C48FEA190C166D006E15BE /* SearchEntryTableViewController.m in Sources */,
 			);
@@ -556,6 +564,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E41DEA17191EE3CF004DC215 /* SearchEntryModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E41DEA18191EE3CF004DC215 /* SearchEntryModel.xcdatamodel */,
+			);
+			currentVersion = E41DEA18191EE3CF004DC215 /* SearchEntryModel.xcdatamodel */;
+			name = SearchEntryModel.xcdatamodeld;
+			path = ../SearchEntryModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BBF8CF9418FCB5D1006B6E88 /* Project object */;
 }
