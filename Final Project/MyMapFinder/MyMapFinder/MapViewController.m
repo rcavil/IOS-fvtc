@@ -129,19 +129,41 @@ didUpdateUserLocation:
 
 - (void) searchMapLogicMain: (NSString *)action
 {
-    if (_mapView.region.center.longitude !=prevSearchLongitude && _mapView.region.center.latitude != prevSearchLatitude && mapSearchBar.text != prevSearchItem)
+    float currentLongitude=_mapView.region.center.longitude;
+    float currentLatitude=_mapView.region.center.latitude;
+    NSString *currentSearchText=mapSearchBar.text;
+    
+    bool runSearch=false;
+    
+    if ([action isEqual:@"updateuserlocation"] || [action isEqual:@"finishloading"])
     {
-        prevSearchLongitude=_mapView.region.center.longitude;
-        prevSearchLatitude=_mapView.region.center.latitude;
-        prevSearchItem=mapSearchBar.text;
+        //check to see if a new search: if location changed and a different search item taking place
+        
+        if ((currentLongitude !=prevSearchLongitude) ||  (currentLatitude!= prevSearchLatitude) || (![currentSearchText isEqualToString:prevSearchItem]))
+        {
+            runSearch=true;
+        }
+
+    }
+    else
+    {
+        runSearch=true;
+    }
+    
+    
+    if (runSearch==true)
+    {
+        prevSearchLongitude=currentLongitude;
+        prevSearchLatitude=currentLatitude;
+        prevSearchItem=currentSearchText;
         
         MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
         request.region = _mapView.region;
         
-        request.naturalLanguageQuery = mapSearchBar.text;        [self performActualMapSearch:request];
-
+        request.naturalLanguageQuery = currentSearchText;
+        [self performActualMapSearch:request];
     }
-
+    
 }
 
 - (SearchEntry *) getCurrentSearchEntry
