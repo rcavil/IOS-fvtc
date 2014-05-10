@@ -105,11 +105,18 @@ didUpdateUserLocation:
     [self searchMapLogicMain:@"updateuserlocation"];
 }
 
-
+/*krusty
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self searchMapLogicMain:@"finishloading"];
 }
+*/
+
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    [self searchMapLogicMain:@"finishloading"];
+}
+
 
 - (void) zoomStart
 {
@@ -135,21 +142,20 @@ didUpdateUserLocation:
     
     bool runSearch=false;
     
-    if ([action isEqual:@"updateuserlocation"] || [action isEqual:@"finishloading"])
+    if ([action isEqual:@"changesearchentry"])
     {
-        //check to see if a new search: if location changed and a different search item taking place
+        runSearch=true;
+    }
+    else
+    {
+      //check to see if a new search: if location changed and a different search item taking place
         
         if ((currentLongitude !=prevSearchLongitude) ||  (currentLatitude!= prevSearchLatitude) || (![currentSearchText isEqualToString:prevSearchItem]))
         {
             runSearch=true;
         }
-
+        
     }
-    else
-    {
-        runSearch=true;
-    }
-    
     
     if (runSearch==true)
     {
