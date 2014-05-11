@@ -216,7 +216,7 @@ didUpdateUserLocation:
     else
     {
         //See if new entry already exists
-        BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:(newEntryName)];
+        BOOL newEntryExists=[[SearchEntryStore SharedStore] searchEntryExists:(newEntryName)];
         
         if (newEntryExists==false)
         {
@@ -243,10 +243,10 @@ didUpdateUserLocation:
     [tempEntry setEntryName:newEntryName];
     
     //Add new search entry via Shared Store
-    [[SearchEntryStore SharedStore] AddEntry: tempEntry];
+    [[SearchEntryStore SharedStore] addEntry: tempEntry];
     
     //Sort search items with new entry
-    [[SearchEntryStore SharedStore] SortSearchEntries];
+    [[SearchEntryStore SharedStore] sortSearchEntries];
 
 }
 

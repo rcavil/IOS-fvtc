@@ -7,6 +7,7 @@
 //
 
 #import "SearchEntryStore.h"
+#import "AppDelegate.h"
 
 @implementation SearchEntryStore
 
@@ -16,12 +17,10 @@
     if (self)
       {
         _searchEntries = [[NSMutableArray alloc] init];
-          [self setCurrentEntry:-1];
-        //Add default entries
-
-          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
-          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"lodging")]];
-          [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
+       [self setCurrentEntry:-1];
+       [self addDefaultEntries];
+       [self loadCoreData];
+          
       }
     return self;
 }
@@ -38,6 +37,23 @@
     return sharedStore;
 }
 
+
+- (void) addDefaultEntries
+{
+    /*krusty
+    [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"gas")]];
+    [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"lodging")]];
+    [_searchEntries addObject:[SearchEntry AddDefaultEntry:(@"restaurants")]];
+    */
+    
+    [self clearAllEntries];
+
+    
+    
+    [self saveCoreData:@"gas"];
+    [self saveCoreData:@"lodging"];
+    [self saveCoreData:@"restaurants"];
+}
 
 - (void) setCurrentEntry:(NSInteger)intCurrentEntry
 {
@@ -89,7 +105,7 @@
 }
 
 
-- (void) AddEntry:(SearchEntry *)searchEntry
+- (void) addEntry:(SearchEntry *)searchEntry
 {
     [_searchEntries addObject:searchEntry];
 }
@@ -104,12 +120,12 @@
     return [_searchEntries count];
 }
 
-- (void) RemoveEntryAtIndex:(NSInteger) index
+- (void) removeEntryAtIndex:(NSInteger) index
 {
     [_searchEntries removeObjectAtIndex:index];
 }
 
-- (BOOL) SearchEntryExists: (NSString*) searchEntry
+- (BOOL) searchEntryExists: (NSString*) searchEntry
 {
     bool entryExists = false;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"entryName like[c] %@",searchEntry];    
@@ -124,7 +140,7 @@
 }
 
 
-- (NSString *) ItemArchivePath
+- (NSString *) itemArchivePath
 {
     //get all the document directories
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -138,9 +154,10 @@
     return path;
 }
 
--(void) Save
+-(void) saveCoreData:(NSString*) searchEntry
 {
    //krusty Need to save coredata
+    /*
     NSString *path = [self ItemArchivePath];
     BOOL success = [NSKeyedArchiver archiveRootObject:_searchEntries toFile:path];
     if (success)
@@ -151,21 +168,89 @@
     {
         NSLog(@"Problem with Save.");
     }
+    */
+    
+    //Begin core data changes
+    
+    AppDelegate *appDelegate =[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =[appDelegate managedObjectContext];
+    
+    NSManagedObject *newSearchEntry;
+
+    
+    newSearchEntry = [NSEntityDescription
+                  insertNewObjectForEntityForName:@"MapSearchEntries"
+                  inManagedObjectContext:context];
+    
+    [newSearchEntry setValue: searchEntry forKey:@"entryName"];
+    NSError *error;
+    [context save:&error];
+    
 }
 
--(void) Load
+-(void) loadCoreData
 {
     //krusty need to load from coredata
-    
+    /*
     NSString *path = [self ItemArchivePath];
     _searchEntries = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     if (!_searchEntries)
       {
         _searchEntries = [[NSMutableArray alloc] init];
       }
+     */
+    
+    NSError *error;
+    
+    AppDelegate *appDelegate =[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =[appDelegate managedObjectContext];
+ 
+    
+
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"MapSearchEntries" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *info in fetchedObjects)
+    {
+        //krusty NSLog(@"EntryName: %@", [info valueForKey:@"entryName"]);
+        [_searchEntries addObject:[SearchEntry AddDefaultEntry:([info valueForKey:@"entryName"])]];
+    }
+    
+    
 }
 
--(void) SortSearchEntries
+
+- (void) clearAllEntries
+{
+    AppDelegate *appDelegate =[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =[appDelegate managedObjectContext];
+
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MapSearchEntries" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    fetchRequest = nil;
+    
+    for (NSManagedObject *info in fetchedObjects)
+    {
+        [context deleteObject:info];
+        
+    }
+
+    if (![context save:&error])
+    {
+    }
+    
+}
+
+-(void) sortSearchEntries
 {
     
     NSSortDescriptor* sortByName = [NSSortDescriptor sortDescriptorWithKey:@"entryName" ascending:YES];

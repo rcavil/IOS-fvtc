@@ -59,7 +59,7 @@
             [[self tableView] deleteRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexPath, nil]
                                     withRowAnimation:UITableViewRowAnimationLeft];
             
-            [[SearchEntryStore SharedStore] RemoveEntryAtIndex:[indexPath row]];
+            [[SearchEntryStore SharedStore] removeEntryAtIndex:[indexPath row]];
             [[self tableView] endUpdates];
         }
                 
@@ -166,7 +166,7 @@
       [tempEntry setEntryName:@""];
       
       //Add new search entry via Shared Store
-      [[SearchEntryStore SharedStore] AddEntry: tempEntry];
+      [[SearchEntryStore SharedStore] addEntry: tempEntry];
       
       //Lauch the detail search entry screen
        

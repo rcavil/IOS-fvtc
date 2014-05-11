@@ -75,7 +75,7 @@
     else
     {
       //See if new entry already exists
-      BOOL newEntryExists=[[SearchEntryStore SharedStore] SearchEntryExists:(newEntryName)];
+      BOOL newEntryExists=[[SearchEntryStore SharedStore] searchEntryExists:(newEntryName)];
     
       if (newEntryExists==false)
       {
@@ -85,7 +85,7 @@
           [tempEntry setEntryName:newEntryName];
                     
           
-          [[SearchEntryStore SharedStore] SortSearchEntries];
+          [[SearchEntryStore SharedStore] sortSearchEntries];
           
  
           //dismisses the current view
@@ -121,7 +121,7 @@
 
 - (IBAction)buttonSearchEntryCancel:(UIButton *)sender
 {
-    [[SearchEntryStore SharedStore] RemoveEntryAtIndex:_searchEntryIndex];
+    [[SearchEntryStore SharedStore] removeEntryAtIndex:_searchEntryIndex];
     
     //dismisses the current view
     [[self navigationController] popViewControllerAnimated:YES];
