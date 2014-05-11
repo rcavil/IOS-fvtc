@@ -105,7 +105,7 @@ didUpdateUserLocation:
     [self searchMapLogicMain:@"updateuserlocation"];
 }
 
-/*krusty
+/*
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
     [self searchMapLogicMain:@"finishloading"];

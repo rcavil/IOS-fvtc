@@ -28,6 +28,7 @@
 
 - (void) saveCoreData: (NSString*) searchEntry;
 - (void) loadCoreData;
+- (void) deleteCoreDataEntry: (NSString*) searchEntry;
 
 - (BOOL) searchEntryExists: (NSString*) searchEntry;
 
