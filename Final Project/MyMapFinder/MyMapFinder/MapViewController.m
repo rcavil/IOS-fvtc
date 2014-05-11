@@ -42,6 +42,11 @@
         appLaunched=true;
         [self changeSearchEntryItem:@"initial"];
     }
+    else
+    {        
+      [self updateSearchEntryLabel];
+      [self searchMapLogicMain:@"viewappeared"];
+    }
     
 }
 
@@ -274,9 +279,9 @@ didUpdateUserLocation:
         }
    
       //Update Search Entry Label
+ 
+    [self updateSearchEntryLabel];
     
-      SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
-      mapSearchBar.text=searchEntryItem.entryName;
 
     
       //Perform Search if applicable
@@ -286,6 +291,12 @@ didUpdateUserLocation:
         }
 }
 
+
+- (void) updateSearchEntryLabel
+{
+    SearchEntry *searchEntryItem=[self getCurrentSearchEntry];
+    mapSearchBar.text=searchEntryItem.entryName;
+}
 
 //Map anotations methods
 

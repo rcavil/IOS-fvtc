@@ -10,5 +10,6 @@
 
 @interface SearchEntryTableViewController : UITableViewController
 - (IBAction)buttonAddEntry:(UIBarButtonItem *)sender;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

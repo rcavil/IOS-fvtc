@@ -115,6 +115,28 @@
     return YES;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //User double clicked search item, show on map view
+    NSInteger row = [indexPath row];
+    
+    [[SearchEntryStore SharedStore] setCurrentEntry:(row)];
+    [self.navigationController popToRootViewControllerAnimated:YES];    
+}
+
+/*
+ 
+    if (self.glossaryDetailViewController == nil)
+    {
+        GlossaryDetailViewController *aGlossaryDetail = [[GlossaryDetailViewController alloc] initWithNibName:@"GlossaryDetailViewController" bundle:nil];
+        self.glossaryDetailViewController = aGlossaryDetail;
+        [aGlossaryDetail release];
+    }
+    
+    glossaryDetailViewController.glossaryDetailItem = [glossaryArray objectAtIndex:row];
+    
+    [self.navigationController pushViewController:self.glossaryDetailViewController animated:YES];
+ */
 
 
 /*
