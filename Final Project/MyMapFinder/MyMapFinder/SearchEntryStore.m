@@ -175,6 +175,16 @@
     
 }
 
+- (void) updateNewEntry:(NSInteger) index :(NSString*) entryName
+{
+
+    SearchEntry *tempEntry = [self EntryAtIndex:index];
+    [tempEntry setEntryName:entryName];
+    
+    [self saveCoreData:(entryName)];    
+    [self sortSearchEntries];
+}
+
 
 //Core Data methods
 
@@ -193,6 +203,12 @@
     [newSearchEntry setValue: searchEntry forKey:@"entryName"];
     NSError *error;
     [context save:&error];
+    
+    if (![context save:&error])
+    {
+        [self displayAlertView:(@"Data error") :(@"Error saving entry.")];
+    }
+
 }
 
 -(void) loadCoreData
@@ -238,7 +254,7 @@
     
     if (![context save:&error])
     {
-        
+        [self displayAlertView:(@"Data error") :(@"Error removing entry.")];
     }
 }
 
@@ -265,9 +281,23 @@
     
     if (![context save:&error])
     {
-        
+        [self displayAlertView:(@"Data error") :(@"Error clearing table.")];
     }
     
 }
+
+//Display alert view
+
+- (void) displayAlertView:(NSString *)title :(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+}
+
 
 @end

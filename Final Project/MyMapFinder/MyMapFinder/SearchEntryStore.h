@@ -25,6 +25,7 @@
 - (void) addEntry:(SearchEntry *) searchEntry;
 - (void) removeEntryAtIndex:(NSInteger) index;
 - (void) sortSearchEntries;
+- (void) updateNewEntry:(NSInteger) index :(NSString*) entryName;
 
 - (void) saveCoreData: (NSString*) searchEntry;
 - (void) loadCoreData;

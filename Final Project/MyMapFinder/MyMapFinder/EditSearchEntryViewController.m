@@ -80,13 +80,7 @@
       if (newEntryExists==false)
       {
           //Save the search entry information from the search entry textboxes
-        
-          SearchEntry *tempEntry = [[SearchEntryStore SharedStore] EntryAtIndex:_searchEntryIndex];
-          [tempEntry setEntryName:newEntryName];
-                    
-          
-          [[SearchEntryStore SharedStore] sortSearchEntries];
-          
+          [[SearchEntryStore SharedStore] updateNewEntry:(_searchEntryIndex) : (newEntryName)];
  
           //dismisses the current view
           [[self navigationController] popViewControllerAnimated:YES];
