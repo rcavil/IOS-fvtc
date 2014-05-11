@@ -24,6 +24,7 @@
          [self addDefaultEntries];
        }
        [self loadCoreData];
+       [self sortSearchEntries];
           
       }
     return self;
