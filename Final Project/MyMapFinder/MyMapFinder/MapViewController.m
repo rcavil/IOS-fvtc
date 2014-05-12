@@ -34,7 +34,7 @@
 {
     [super viewDidAppear:animated];
 
-    //Set first search entry and then search for it
+    //Set first search entry and then search for it for initial launch
     if (appLaunched==false)
     {
         [_mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
@@ -62,6 +62,7 @@
 
 - (IBAction)type:(id)sender
 {
+    //Change map appearances for 3 different map types
     if (_mapView.mapType == MKMapTypeStandard)
         _mapView.mapType = MKMapTypeSatellite;
     else if (_mapView.mapType == MKMapTypeSatellite)
@@ -77,23 +78,27 @@
 
 - (IBAction)nextSearchEntryItem:(UIBarButtonItem *)sender
 {
+    //Go to next saved search item
     [self changeSearchEntryItem:@"next"];
 }
 
 - (IBAction)prevSearchEntryItem:(UIBarButtonItem *)sender
 {
+    //Go to previous saved search item
     [self changeSearchEntryItem:@"prev"];
 }
 
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
   {
+    //perform a manual search based on user's input
     [searchBar resignFirstResponder];
     [self searchMapLogicMain:@"manualsearch"];
   }
 
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
   {
+   //Cancel search bar keyboard
    [searchBar resignFirstResponder];
   }
 
@@ -104,9 +109,7 @@
 didUpdateUserLocation:
 (MKUserLocation *)userLocation
 {
-    //_mapView.centerCoordinate =
-    //userLocation.location.coordinate;
-    
+    //user updated map location, perform search
     [self searchMapLogicMain:@"updateuserlocation"];
 }
 
@@ -138,9 +141,13 @@ didUpdateUserLocation:
 
 //Map search logic methods
 
-
 - (void) searchMapLogicMain: (NSString *)action
 {
+    //main entry point to determine if a new search should be performed
+    //if the location and search item are the same as previouslly
+    //don't perform the same search again
+    //if ok to perform a seach, call out the performActualMapSearch method
+    
     float currentLongitude=_mapView.region.center.longitude;
     float currentLatitude=_mapView.region.center.latitude;
     NSString *currentSearchText=mapSearchBar.text;
@@ -164,6 +171,7 @@ didUpdateUserLocation:
     
     if (runSearch==true)
     {
+        //New search
         prevSearchLongitude=currentLongitude;
         prevSearchLatitude=currentLatitude;
         prevSearchItem=currentSearchText;
@@ -179,6 +187,7 @@ didUpdateUserLocation:
 
 - (SearchEntry *) getCurrentSearchEntry
 {
+    //Get the current saved search entry
     NSInteger intCurrentEntry=[[SearchEntryStore SharedStore] currentEntry];
     
     if (intCurrentEntry==-1)
@@ -190,12 +199,12 @@ didUpdateUserLocation:
     
     SearchEntry *searchEntryItem=[[SearchEntryStore SharedStore] EntryAtIndex:intCurrentEntry];
 
-
     return searchEntryItem;
 }
 
 - (void) performActualMapSearch: ( MKLocalSearchRequest *) request
 {
+    //routine that actually performs the map search
     [self clearMapAnnotations];
     MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     
@@ -258,8 +267,8 @@ didUpdateUserLocation:
 
 - (void)changeSearchEntryItem:(NSString *)action
 {
+    //search entry text changes
     bool runSearch=false;
-    
 
       if ([action isEqual:@"initial"])
       {
@@ -282,7 +291,6 @@ didUpdateUserLocation:
  
     [self updateSearchEntryLabel];
     
-
     
       //Perform Search if applicable
       if (runSearch==true)
@@ -302,6 +310,7 @@ didUpdateUserLocation:
 
 - (void)createMapAnnotations: (MKLocalSearchResponse *)response
 {
+    //create a map annotation for each returned search results
     for (MKMapItem *item in response.mapItems)
     {
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];

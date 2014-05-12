@@ -10,6 +10,7 @@
 
 @interface SearchEntry : NSObject
 
+//Search Entry Class.  Just one property so far
 {
     NSString *_entryName;
 }

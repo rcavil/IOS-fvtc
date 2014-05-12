@@ -12,6 +12,7 @@
 
 @interface SearchEntryTableViewController ()
 {
+    //Array to hold saved search entries
     NSMutableArray *_searchEntries;
 }
 @end
@@ -21,7 +22,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -181,7 +183,7 @@
 
 - (IBAction)buttonAddEntry:(UIBarButtonItem *)sender
   {
-      
+      //Start the process of adding a new search entry
       
       //temp search entry variable that will be use to create a new search entry
       SearchEntry *tempEntry = [[SearchEntry alloc] init];

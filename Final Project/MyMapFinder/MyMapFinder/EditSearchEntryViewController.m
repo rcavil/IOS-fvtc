@@ -21,7 +21,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         // Custom initialization
     }
     return self;
@@ -58,6 +59,10 @@
 
 - (IBAction)buttonSearchEntrySave:(UIButton *)sender
 {
+    //Attempt to save a new search entry
+    //Check to see if new entry isn't blank
+    //And that new entry doesn't already exist
+    
     NSString *origEntryName =[textSearchEntry text];
     NSString *newEntryName = [origEntryName lowercaseString];
     
@@ -70,7 +75,6 @@
                                               otherButtonTitles:nil];
         [alert show];
         [textSearchEntry becomeFirstResponder];
-        
     }
     else
     {
@@ -103,6 +107,7 @@
 
 -(void) setSearchEntryIndex:(NSInteger) index
 {
+    //Set the value of the current search entry
     _searchEntryIndex = index;
     
 }
